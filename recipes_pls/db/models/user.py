@@ -1,5 +1,6 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm import backref
 
 
 class User(db.Model):
