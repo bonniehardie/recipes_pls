@@ -1,6 +1,8 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy.orm import backref
+from sqlalchemy.sql import func
+
 
 
 class User(db.Model):
@@ -10,8 +12,11 @@ class User(db.Model):
   username = db.Column(db.String(50), nullable=False, unique=True)
   email = db.Column(db.String(255), nullable=False, unique=True)
   hashed_password = db.Column(db.String(255), nullable=False)
+  created_at = db.Column(db.DateTime, nullable=False, default=func.now())
+  updated_at = db.Column(db.DateTime, nullable=False, default=func.now())
 
   recipes = db.relationship('Recipe', backref='users', lazy=True)
+  ratings = db.relationship('Rating', backref='users', lazy=True)
 
   @property
   def password(self):

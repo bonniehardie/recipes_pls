@@ -1,24 +1,24 @@
-# import os
-# from flask import Flask, render_template, request, session
+import os
+from flask import Flask, render_template, request, session
 # from flask_cors import CORS
-# from flask_migrate import Migrate
+from flask_migrate import Migrate
 # from flask_wtf.csrf import CSRFProtect, generate_csrf
 # from flask_login import LoginManager
 
-# from .models import db, User
-# from .api.user_routes import user_routes
-# from .api.auth_routes import auth_routes
-# from .api.note_routes import note_routes
-# from .api.notebook_routes import notebook_routes
-# from .api.tag_routes import tag_routes
-# from .api.note_tag_routes import note_tag_routes
+from .models import db, User
+# # from .api.user_routes import user_routes
+# # from .api.auth_routes import auth_routes
+# # from .api.note_routes import note_routes
+# # from .api.notebook_routes import notebook_routes
+# # from .api.tag_routes import tag_routes
+# # from .api.note_tag_routes import note_tag_routes
 
 
-# from .seeds import seed_commands
+# # from .seeds import seed_commands
 
-# from .config import Config
+from .config import Config
 
-# app = Flask(__name__)
+app = Flask(__name__)
 
 # # Setup login manager
 # login = LoginManager(app)
@@ -33,7 +33,7 @@
 # # Tell flask about our seed commands
 # app.cli.add_command(seed_commands)
 
-# app.config.from_object(Config)
+app.config.from_object(Config)
 
 # app.register_blueprint(user_routes, url_prefix='/api/users')
 # app.register_blueprint(auth_routes, url_prefix='/api/auth')
@@ -46,8 +46,8 @@
 #     note_tag_routes, url_prefix='/api/notes/<int:noteid>/tags')
 
 
-# db.init_app(app)
-# Migrate(app, db)
+db.init_app(app)
+Migrate(app, db)
 
 # # Application Security
 # CORS(app)
