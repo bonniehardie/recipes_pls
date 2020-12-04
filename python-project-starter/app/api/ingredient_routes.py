@@ -7,6 +7,13 @@ import json
 ingredient_routes = Blueprint('ingredients', __name__)
 
 
+@ingredient_routes.route('/')
+# @login_required
+def all_ingredients(userid, recipeid):
+    ingredients = Ingredient.query.filter(Ingredient.recipe_id == recipeid).all()
+    return {"ingredients": [ingredient.to_dict() for ingredient in ingredients]}
+
+
 @ingredient_routes.route('/', methods=['POST'], strict_slashes=False)
 # @login_required
 def create_ingredient(userid, recipeid):
