@@ -1,12 +1,14 @@
 from app.models import db, Recipe
 
-# Adds a demo user, you can add other users here if you want
-
-
 def seed_recipes():
-
-    demo_tag = Tag(title='test', user_id=1)
+    new_tag = Recipe(
+        title='test',
+        user_id=1)
     db.session.add(demo_tag)
+
+
+
+
     demo_tag = Tag(title='class', user_id=1)
     db.session.add(demo_tag)
     demo_tag = Tag(title='fix', user_id=1)
