@@ -19,7 +19,7 @@ class Ingredient(db.Model):
             "id": self.id,
             "name": self.name,
             "quantity": self.quantity,
-            "unit": self.quantity,
+            "unit": self.unit,
             "recipe_id": self.recipe_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,

@@ -4,4 +4,6 @@
 - make ingredient.unit and ingredients.quantity optional
 - add recipes.number_of_servings, recipes.blurb, and recipes.footnotes
 - think about nullable options, validators, and errors
-- reset ids to 0
+- reset ids to 0 after deleting
+- add user editing and simple profile if I have time
+- fixed a typo in ingredients.to_dict() and didn't remigrate--hoping that will suffice (unit = self.unit instead of unit = self.quantity)
