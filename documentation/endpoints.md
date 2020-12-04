@@ -115,7 +115,7 @@ app.register_blueprint(rating_routes, url_prefix='/api/users/<int:userid>/recipe
             db.session.commit()
             return { 'id': ingredient}
 
-# finish making routes for ratings crud
+# finish making backend routes for ratings crud
 
 -------
 
@@ -126,9 +126,8 @@ app.register_blueprint(rating_routes, url_prefix='/api/users/<int:userid>/recipe
 
 # finish front end routes...
 <Route path="/recipes/:current_recipe/allingredients/">
-    <Box className={ classes.noteviewcontainer }>
-        <NoteInfoPanel />
-        <EditorPanel />
+    <Box className={ classes.recipeviewcontainer }>
+        <RecipeInfoPanel />
     </Box>
 </Route>
 

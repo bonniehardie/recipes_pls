@@ -1,0 +1,5 @@
+- use drop downs for many options--research how that will change models
+- use float instead of int for ingredients.quantity
+- consider plural vs singluar for ingredient.unit
+- make ingredient.unit and ingredients.quantity optional
+- add recipes.number_of_servings, recipes.blurb, and recipes.footnotes
