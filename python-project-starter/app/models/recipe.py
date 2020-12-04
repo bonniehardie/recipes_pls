@@ -23,6 +23,8 @@ class Recipe(db.Model):
         return {
             "id": self.id,
             "name": self.name,
+            "picture_url": self.picture_url,
+            "backstory": self.backstory,
             "user_id": self.user_id,
             "created_at": self.created_at,
             "updated_at": self.updated_at,

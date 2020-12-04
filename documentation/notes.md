@@ -3,3 +3,5 @@
 - consider plural vs singluar for ingredient.unit
 - make ingredient.unit and ingredients.quantity optional
 - add recipes.number_of_servings, recipes.blurb, and recipes.footnotes
+- think about nullable options, validators, and errors
+- reset ids to 0
