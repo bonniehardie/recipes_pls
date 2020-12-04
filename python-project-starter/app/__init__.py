@@ -3,12 +3,12 @@ from flask import Flask, render_template, request, session
 # from flask_cors import CORS
 from flask_migrate import Migrate
 # from flask_wtf.csrf import CSRFProtect, generate_csrf
-# from flask_login import LoginManager
+from flask_login import LoginManager
 
 from .models import db, User
-# # from .api.user_routes import user_routes
-# # from .api.auth_routes import auth_routes
-# # from .api.note_routes import note_routes
+from .api.user_routes import user_routes
+from .api.auth_routes import auth_routes
+from .api.recipe_routes import recipe_routes
 # # from .api.notebook_routes import notebook_routes
 # # from .api.tag_routes import tag_routes
 # # from .api.note_tag_routes import note_tag_routes
@@ -20,14 +20,14 @@ from .config import Config
 
 app = Flask(__name__)
 
-# # Setup login manager
-# login = LoginManager(app)
-# login.login_view = 'auth.unauthorized'
+# Setup login manager
+login = LoginManager(app)
+login.login_view = 'auth.unauthorized'
 
 
-# @login.user_loader
-# def load_user(id):
-#     return User.query.get(int(id))
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 # # Tell flask about our seed commands
@@ -35,10 +35,10 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 
-# app.register_blueprint(user_routes, url_prefix='/api/users')
-# app.register_blueprint(auth_routes, url_prefix='/api/auth')
-# app.register_blueprint(
-#     note_routes, url_prefix='/api/users/<int:userid>/notebooks/<int:notebookid>/notes')
+app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(
+    recipe_routes, url_prefix='/api/users/<int:userid>/recipes/<int:recipeid>')
 # app.register_blueprint(
 #     notebook_routes, url_prefix='/api/users/<int:userid>/notebooks')
 # app.register_blueprint(tag_routes, url_prefix='/api/users/<int:userid>/tags')

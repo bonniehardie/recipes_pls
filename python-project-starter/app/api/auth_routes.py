@@ -1,11 +1,56 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import db, Direction, Ingredient, Rating, Recipe, Tool, User
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
 
+
+def get_user_data(user):
+
+    recipes = Recipe.query.filter(Recipe.user_is == user['id'].options(
+        joinedload(Recipe.ingredients).all()
+    ))
+    recipes_data = [recipe.to_dict() for recipe in recipes]
+    recipes_data = {
+        "dict": {recipes.id: recipes.to_dict() for recipe in recipes},
+        "ids": [recipes.id for recipe in recipes]
+    }
+
+    # tags = Tag.query.filter(Tag.user_id == user['id']).options(
+    #     joinedload(Tag.notes)).all()
+    # tags_data = {
+    #     "dict": {tag.id: tag.to_dict() for tag in tags},
+    #     "ids": [tag.id for tag in tags]
+    # }
+
+    # notebooks = Notebook.query.filter(Notebook.user_id == user['id']).options(
+    #     joinedload(Notebook.notes).joinedload(Note.tags)).all()
+    # notebooks_data = [notebook.to_dict() for notebook in notebooks]
+    # notebooks_data = {
+    #     "dict": {notebook.id: notebook.to_dict() for notebook in notebooks},
+    #     "ids": [notebook.id for notebook in notebooks]
+    # }
+
+    # notes = []
+    # for notebook in notebooks:
+    #     notes.extend(notebook.notes)
+    # notes_data = {
+    #     "dict": {note.id: note.to_dict() for note in notes},
+    #     "ids": [note.id for note in notes],
+    # }
+
+    # return {
+    #     "user": user,
+    #     "tags": tags_data,
+    #     "notebooks": notebooks_data,
+    #     "notes": notes_data
+    # }
+    return {
+        "user": user,
+        "recipes": recipes_data
+    }
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -24,7 +69,10 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        print(f'user id: {current_user}')
+        data = get_user_data(current_user.to_dict())
+        return data
+
     return {'errors': ['Unauthorized']}, 401
 
 
@@ -42,7 +90,8 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
-        return user.to_dict()
+        data = get_user_data(user.to_dict())
+        return data
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -71,7 +120,8 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         login_user(user)
-        return user.to_dict()
+        data = get_user_data(user.to_dict())
+        return data
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
