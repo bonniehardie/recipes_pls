@@ -1,59 +1,16 @@
 from app.models import db, Recipe
 
 def seed_recipes():
-    new_tag = Recipe(
-        title='test',
+    demo_recipe = Recipe(
+        name='Salmon and Asparagus in Aluminum Foil Pouches',
+        picture_url='https://savorandsavvy.com/wp-content/uploads/2019/07/Baked-Salmon-recipe-1.jpg',
+        backstory='One of my favorite dishes of all time.  Fast prep, easy clean-up, and delicious! Goes great with mashed potatoes :)',
         user_id=1)
-    db.session.add(demo_tag)
+    db.session.add(demo_recipe)
 
-
-
-
-    demo_tag = Tag(title='class', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='fix', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='javascript', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='c++', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='java', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='to do', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='team', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='project', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='agenda', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='quick', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='animals', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='zoo', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='victories', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='fail', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='future', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='clean', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='grocery', user_id=1)
-    db.session.add(demo_tag)
-    demo_tag = Tag(title='lists', user_id=1)
-    db.session.add(demo_tag)
     db.session.commit()
 
 
-# Uses a raw SQL query to TRUNCATE the users table.
-# SQLAlchemy doesn't have a built in function to do this
-# TRUNCATE Removes all the data from the table, and resets
-# the auto incrementing primary key
-
-
-def undo_tags():
-    db.session.execute('TRUNCATE tags RESTART IDENTITY CASCADE;')
+def undo_recipes():
+    db.session.execute('TRUNCATE recipes RESTART IDENTITY CASCADE;')
     db.session.commit()
