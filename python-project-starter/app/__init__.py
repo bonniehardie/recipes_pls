@@ -12,6 +12,7 @@ from .api.recipe_routes import recipe_routes
 from .api.ingredient_routes import ingredient_routes
 from .api.tool_routes import tool_routes
 from .api.direction_routes import direction_routes
+from .api.rating_routes import rating_routes
 
 
 from .seeds import seed_commands
@@ -44,6 +45,8 @@ app.register_blueprint(
 app.register_blueprint(tool_routes, url_prefix='/api/users/<int:userid>/recipes/<int:recipeid>/tools')
 app.register_blueprint(
     direction_routes, url_prefix='/api/users/<int:userid>/recipes/<int:recipeid>/directions')
+app.register_blueprint(
+    rating_routes, url_prefix='/api/users/<int:userid>/recipes/<int:recipeid>/ratings')
 
 
 db.init_app(app)
