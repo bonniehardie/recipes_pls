@@ -1,8 +1,8 @@
 
-# recipes pls!
+# recipes pls :)
 
 ## ABOUT
-recipes pls! is a recipe blogging app that seeks to create a clean, aesthetically-pleasing platform for users to post, view, and rate recipes. Developed by Bonnie Hardie.
+recipes pls :) is a recipe blogging app that seeks to create a clean, aesthetically-pleasing platform for users to post, view, and rate recipes. Developed by Bonnie Hardie.
 
 ## LIVE LINK
 https://replace-me-with-live-link/
