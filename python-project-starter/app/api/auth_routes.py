@@ -3,6 +3,7 @@ from app.models import db, Direction, Ingredient, Rating, Recipe, Tool, User
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from sqlalchemy.orm import joinedload
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -39,13 +40,6 @@ def get_user_data(user):
     # notes_data = {
     #     "dict": {note.id: note.to_dict() for note in notes},
     #     "ids": [note.id for note in notes],
-    # }
-
-    # return {
-    #     "user": user,
-    #     "tags": tags_data,
-    #     "notebooks": notebooks_data,
-    #     "notes": notes_data
     # }
     return {
         "user": user,
