@@ -8,14 +8,14 @@ ingredient_routes = Blueprint('ingredients', __name__)
 
 
 @ingredient_routes.route('/')
-# @login_required
+@login_required
 def all_ingredients(userid, recipeid):
     ingredients = Ingredient.query.filter(Ingredient.recipe_id == recipeid).all()
     return {"ingredients": [ingredient.to_dict() for ingredient in ingredients]}
 
 
 @ingredient_routes.route('/', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def create_ingredient(userid, recipeid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -33,7 +33,7 @@ def create_ingredient(userid, recipeid):
 
 
 @ingredient_routes.route('/<int:ingredientid>', methods=['PUT'], strict_slashes=False)
-# @login_required
+@login_required
 def edit_ingredient(userid, recipeid, ingredientid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -49,7 +49,7 @@ def edit_ingredient(userid, recipeid, ingredientid):
 
 
 @ingredient_routes.route('/<int:ingredientid>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def delete_ingredient(userid, recipeid, ingredientid):
     ingredient = Ingredient.query.filter(Ingredient.id == ingredientid).first()
     db.session.delete(ingredient)
