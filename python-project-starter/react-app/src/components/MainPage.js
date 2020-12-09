@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import useStyles from './styles/MainPageStyles';
+import RecipeContent from './RecipeContent';
+import Profile from './Profile';
 
 export default function MainPage() {
   const classes = useStyles();
@@ -10,14 +12,11 @@ export default function MainPage() {
     <Box className={ classes.mainpageContainer }>
       <main className={ classes.main }>
         <Switch>
-          <Route path="/allnotebooks">
-            <NotebookPanel />
+          <Route path="/allrecipes">
+            <RecipeContent />
           </Route>
-          <Route path="/notebooks/:current_notebook/notes/:current_note/tags/:current_tag">
-            <Box className={ classes.noteviewcontainer }>
-              <NoteInfoPanel />
-              <EditorPanel />
-            </Box>
+          <Route path="/profile">
+            <Profile />
           </Route>
         </Switch>
       </main>

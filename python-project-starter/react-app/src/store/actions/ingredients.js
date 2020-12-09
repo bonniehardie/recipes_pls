@@ -10,7 +10,7 @@ export const createIngredientAction = (ingredient) => ({ type: CREATE_INGREDIENT
 export const updateIngredientAction = (ingredient) => ({ type: UPDATE_INGREDIENT, ingredient });
 export const deleteIngredientAction = (ingredientId) => ({ type: DELETE_INGREDIENT, ingredientId });
 
-export const createIngredient = (userId, recipeId) => async (dispatch) => {
+export const createIngredient = (userId, recipeId, name, quantity, unit) => async (dispatch) => {
     const response = await fetch(`/api/users/${userId}/recipes/${recipeId}/ingredients/`, {
         method: 'POST',
         headers: {

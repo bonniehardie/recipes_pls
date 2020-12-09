@@ -70,7 +70,7 @@ export const deleteRatingFromRecipe = (recipeid, ratingid) => ({
 });
 
 
-export const createRecipe = (userid, name, picture_url, backstory) => async (dispatch) => {
+export const createRecipeThunk = (userid, name, picture_url, backstory) => async (dispatch) => {
     let newRecipe = await fetch(`/api/users/${userid}/recipes/`, {
         method: 'POST',
         headers: {
@@ -88,7 +88,7 @@ export const createRecipe = (userid, name, picture_url, backstory) => async (dis
     }
 };
 
-export const editRecipe = (userid, name, picture_url, backstory) => async (dispatch) => {
+export const editRecipeThunk = (userid, recipeid, name, picture_url, backstory) => async (dispatch) => {
     let edited = await fetch(`api/users/${userid}/recipes/${recipeid}`, {
         method: 'PUT',
         headers: {
@@ -107,7 +107,7 @@ export const editRecipe = (userid, name, picture_url, backstory) => async (dispa
 };
 
 
-export const deleteRecipe = (userid, recipeid) => async (dispatch) => {
+export const deleteRecipeThunk = (userid, recipeid) => async (dispatch) => {
     let deleted = await fetch(`api/users/${userid}/recipes/${recipeid}`, {
         method: 'DELETE'
     });
