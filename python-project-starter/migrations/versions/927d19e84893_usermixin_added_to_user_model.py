@@ -1,8 +1,8 @@
-"""first migration in flask app
+"""UserMixin added to user model
 
-Revision ID: f5e02371f68f
+Revision ID: 927d19e84893
 Revises: 
-Create Date: 2020-12-03 21:59:42.953089
+Create Date: 2020-12-10 22:45:13.506295
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f5e02371f68f'
+revision = '927d19e84893'
 down_revision = None
 branch_labels = None
 depends_on = None
