@@ -10,13 +10,12 @@ auth_routes = Blueprint('auth', __name__)
 
 def get_user_data(user):
 
-    recipes = Recipe.query.filter(Recipe.user_id == user['id'].options(
-        joinedload(Recipe.ingredients).all()
-    ))
+    recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
+        joinedload(Recipe.ingredients)).all()
     recipes_data = [recipe.to_dict() for recipe in recipes]
     recipes_data = {
-        "dict": {recipes.id: recipes.to_dict() for recipe in recipes},
-        "ids": [recipes.id for recipe in recipes]
+        "dict": {recipe.id: recipe.to_dict() for recipe in recipes},
+        "ids": [recipe.id for recipe in recipes]
     }
 
     ingredients = []
@@ -53,7 +52,7 @@ def authenticate():
         data = get_user_data(current_user.to_dict())
         return data
 
-    return {'errors': ['Unauthorized']}, 401
+    return {'errors': ['Unauthorized']}
 
 
 @auth_routes.route('/login', methods=['POST'])
@@ -73,7 +72,7 @@ def login():
         # login_user(user.to_dict())
         login_user(user)
         data = get_user_data(user.to_dict())
-        # print('*************', data)
+        print('*************', data)
         return data
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

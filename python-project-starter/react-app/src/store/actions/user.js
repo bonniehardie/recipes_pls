@@ -23,6 +23,8 @@ export const authenticateThunk = () => async (dispatch) => {
         dispatch(setIngredients(ingredients));
         dispatch(setRatings(ratings));
         dispatch(setTools(tools));
+    } else {
+        return
     }
 };
 
