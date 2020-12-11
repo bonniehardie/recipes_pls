@@ -9,117 +9,33 @@ auth_routes = Blueprint('auth', __name__)
 
 
 def get_user_data(user):
-
-    # recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-    #     joinedload(Recipe.ingredients)).all()
-    # recipes_data = [recipe.to_dict() for recipe in recipes]
-    # recipes_data = {
-    #     "dict": {recipe.id: recipe.to_dict() for recipe in recipes},
-    #     "ids": [recipe.id for recipe in recipes]
-    # }
-
-    # ingredients = []
-    # for recipe in recipes:
-    #     ingredients.extend(recipe.ingredients)
-    # ingredients_data = {
-    #     "dict": {ingredient.id: ingredient.to_dict() for ingredient in ingredients},
-    #     "ids": [ingredient.id for ingredient in ingredients],
-    # }
-
-    # recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-    #     joinedload(Recipe.directions)).all()
-    # directions = []
-    # for recipe in recipes:
-    #     directions.extend(recipe.directions)
-    # directions_data = {
-    #     "dict": {direction.id: direction.to_dict() for direction in directions},
-    #     "ids": [direction.id for direction in directions],
-    # }
-
-    # recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-    #     joinedload(Recipe.tools)).all()
-    # tools = []
-    # for recipe in recipes:
-    #     tools.extend(recipe.tools)
-    # tools_data = {
-    #     "dict": {tool.id: tool.to_dict() for tool in tools},
-    #     "ids": [tool.id for tool in tools],
-    # }
-
-    # recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-    #     joinedload(Recipe.ratings)).all()
-    # ratings = []
-    # for recipe in recipes:
-    #     ratings.extend(recipe.ratings)
-    # ratings_data = {
-    #     "dict": {rating.id: rating.to_dict() for rating in ratings},
-    #     "ids": [rating.id for rating in ratings],
-    # }
-
-# attempt 2 for ratings:
-    # ratings = Rating.query.filter(Rating.user_id == user['id']).options(joinedload(Rating.recipes)).all()
-    # ratings_data = {
-    #     "dict": {rating.id:rating.to_dict() for rating in ratings},
-    #     "ids": [rating.id for rating in ratings]
-    # }
-
-    recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-        joinedload(Recipe.ratings)).all()
-    ratings = []
-    for recipe in recipes:
-        ratings.extend(recipe.ratings)
-    ratings_data = {
-        "dict": {rating.id: rating.to_dict() for rating in ratings},
-        "ids": [rating.id for rating in ratings],
-    }
-
-    recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-        joinedload(Recipe.ingredients)).all()
-    recipes_data = [recipe.to_dict() for recipe in recipes]
-    recipes_data = {
-        "dict": {recipe.id:recipe.to_dict() for recipe in recipes},
-        "ids": [recipe.id for recipe in recipes]
-    }
-
-    ingredients = []
-    for recipe in recipes:
-        ingredients.extend(recipe.ingredients)
-    ingredients_data = {
-        "dict": {ingredient.id: ingredient.to_dict() for ingredient in ingredients},
-        "ids": [ingredient.id for ingredient in ingredients],
-    }
-
-    recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-        joinedload(Recipe.directions)).all()
-
-    directions = []
-    for recipe in recipes:
-        directions.extend(recipe.directions)
-    directions_data = {
-        "dict": {direction.id: direction.to_dict() for direction in directions},
-        "ids": [direction.id for direction in directions],
-    }
-
-    recipes = Recipe.query.filter(Recipe.user_id == user['id']).options(
-        joinedload(Recipe.tools)).all()
-
-    tools = []
-    for recipe in recipes:
-        tools.extend(recipe.tools)
-    tools_data = {
-        "dict": {tool.id: tool.to_dict() for tool in tools},
-        "ids": [tool.id for tool in tools],
-    }
-
+    recipes_query = Recipe.query.all()
+    tools = {}
+    ingredients = {}
+    directions = {}
+    ratings = {}
+    recipes = {}
+    for recipe in recipes_query:
+        recipes[recipe.id] = recipe.less_to_dict()
+        for tool in recipe.tools:
+            tools[tool.id] = tool
+        for ingredient in recipe.ingredients:
+            ingredients[ingredient.id] = ingredient
+        for direction in recipe.directions:
+            directions[direction.id] = direction
+        for rating in recipe.ratings:
+            ratings[rating.id] = rating
 
     return {
         "user": user,
-        "ingredients": ingredients_data,
-        "recipes": recipes_data,
-        "directions": directions_data,
-        "tools": tools_data,
-        "ratings": ratings_data
+        "ingredients": ingredients,
+        "recipes": recipes,
+        "directions": directions,
+        "tools": tools,
+        "ratings": ratings
     }
+
+
 
 def validation_errors_to_error_messages(validation_errors):
     """

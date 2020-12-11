@@ -19,7 +19,7 @@ class Recipe(db.Model):
     directions = db.relationship('Direction', backref=backref('recipes', uselist=False), lazy=True)
     ratings = db.relationship('Rating', backref=backref('recipes', uselist=False), lazy=True)
 
-    def to_dict(self):
+    def less_to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
@@ -32,5 +32,19 @@ class Recipe(db.Model):
             "tool_ids": [tool.id for tool in self.tools],
             "direction_ids": [direction.id for direction in self.directions],
             "rating_ids": [rating.id for rating in self.ratings],
-
+        }
+        
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "picture_url": self.picture_url,
+            "backstory": self.backstory,
+            "user_id": self.user_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+            "ingredients": [ingredient.to_dict() for ingredient in self.ingredients],
+            "tools": [tool.to_dict() for tool in self.tools],
+            "directions": [direction.to_dict() for direction in self.directions],
+            "ratings": [rating.to_dict() for rating in self.ratings],
         }

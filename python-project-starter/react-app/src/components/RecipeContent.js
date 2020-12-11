@@ -8,12 +8,15 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { useSelector } from 'react-redux';
 
 
 
 export default function RecipeContent() {
   const classes = RecipeContentStyles();
-
+  const recipes = useSelector(state => state.recipes)
+  const recipes_dict_1 = recipes.dict[1]
+  // console.log(recipes_dict_1)
   return (
     <div className={classes.container}>
       <div className={classes.root}>
@@ -29,27 +32,25 @@ export default function RecipeContent() {
               <List className={classes.list}>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
-                  salmon filet
+                  <Typography>1 filet salmon</Typography>
                 </ListItem>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
-                  fresh dill
+                  <Typography>5</Typography>
+                  <Typography>sprigs</Typography>
+                  <Typography>fresh dill</Typography>
                 </ListItem>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
-                  salmon filet
+                  <Typography>1</Typography>
+                  <Typography>small</Typography>
+                  <Typography>lemon</Typography>
                 </ListItem>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
-                  fresh dill
-                </ListItem>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  salmon filet
-                </ListItem>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  fresh dill
+                  <Typography>1</Typography>
+                  <Typography>clove </Typography>
+                  <Typography>garlic</Typography>
                 </ListItem>
               </List>
           </AccordionDetails>
@@ -96,10 +97,9 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>back story</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
-            </Typography>
+              <Typography>
+                {/* {recipes.dict[1].backstory} */}
+              </Typography>
           </AccordionDetails>
         </Accordion>
       </div>
