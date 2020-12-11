@@ -14,6 +14,7 @@ export const setUser = (user) => ({ type: SET_USER, user });
 
 export const authenticateThunk = () => async (dispatch) => {
     const data = await authenticate();
+    // if (!data) return null;
     if (!data.errors) {
         const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));
@@ -27,6 +28,7 @@ export const authenticateThunk = () => async (dispatch) => {
 
 export const loginThunk = (email, password) => async (dispatch) => {
     const data = await login(email, password);
+    // if (!data) return null;
     if (!data.errors) {
         const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));
