@@ -7,7 +7,7 @@ const LogoutButton = ({setAuthenticated}) => {
     setAuthenticated(false);
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button onClick={onLogout}>logout</button>;
 };
 
 export default LogoutButton;

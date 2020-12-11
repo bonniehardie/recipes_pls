@@ -14,6 +14,7 @@ import AuthStyles from '../styles/AuthStyles';
 
 const LoginForm = () => {
     const classes = AuthStyles();
+    
     const [email, setEmail] = useState("chef@demo.io");
     const [password, setPassword] = useState("omedfehc");
     const dispatch = useDispatch();

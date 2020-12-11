@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import RecipeContentStyles from './styles/RecipeContentStyles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -10,56 +10,9 @@ import ListItem from '@material-ui/core/ListItem';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 
-const useStyles = makeStyles((theme) => ({
-  accordion: {
-    // backgroundColor: 'white',
-    // backgroundColor: '#E8D7CF',
-    // color: '#E8D7CF'
-    color: '#BAA6AC',
-    fontFamily: 'arial',
-
-  },
-  bullet: {
-    height: 10
-  },
-  container: {
-    // backgroundColor: '#E8D7CF',
-    backgroundColor: 'white',
-    height: '1000px',
-    width: '1000px',
-    padding: '20%'
-  },
-
-  details: {
-
-    display: 'relative',
-  },
-  icon: {
-    color: '#BAA6AC',
-      '&:hover': {
-        color: '#EDE8EA'
-      },
-  },
-  list: {
-    display: 'absolute',
-    left: 50
-  },
-  root: {
-    width: '50%',
-    // backgroundColor: '#E8D7CF',
-    backgroundColor: 'white',
-  },
-  heading: {
-    paddingLeft: 10,
-    color: '#BAA6AC',
-      '&:hover': {
-        color: '#EDE8EA'
-      },
-  },
-}));
 
 export default function RecipeContent() {
-  const classes = useStyles();
+  const classes = RecipeContentStyles();
 
   return (
     <div className={classes.container}>
@@ -70,7 +23,7 @@ export default function RecipeContent() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <div className={classes.heading}>ingredients</div>
+            <Typography className={classes.heading}>ingredients</Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
               <List className={classes.list}>

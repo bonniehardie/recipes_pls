@@ -1,15 +1,17 @@
 import React from 'react';
 import { Box } from '@material-ui/core';
-import useStyles from './styles/MainPageStyles';
+import ProfileStyles from './styles/ProfileStyles';
+import RecipeContent from './RecipeContent';
 
 export default function Profile() {
-  const classes = useStyles();
+  const classes = ProfileStyles();
 
   return (
-    <Box className={ classes.mainpageContainer }>
+    <Box >
       <div>
           This is a profile
       </div>
+      <RecipeContent />
     </Box>
   );
 }

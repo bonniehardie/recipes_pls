@@ -12,7 +12,8 @@ export default function MainPage() {
     <Box className={ classes.mainpageContainer }>
       <main className={ classes.main }>
         <Switch>
-          <Route path="/recipes/<int:recipeid>">
+          {/* <Route path="/recipes/<int:recipeid>"> */}
+          <Route path="recipes">
             <RecipeContent />
           </Route>
           <Route path="/profile">

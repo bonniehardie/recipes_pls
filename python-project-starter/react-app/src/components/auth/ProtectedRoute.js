@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom';
 const ProtectedRoute = props => {
 
   if (props.authenticated) {
-    return <Redirect to="/recipes"/>
+    return <Redirect to="/profile"/>
   }
 
   return (
