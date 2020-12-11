@@ -34,15 +34,16 @@ def get_user_data(user):
     #     "ids": [notebook.id for notebook in notebooks]
     # }
 
-    # notes = []
-    # for notebook in notebooks:
-    #     notes.extend(notebook.notes)
-    # notes_data = {
-    #     "dict": {note.id: note.to_dict() for note in notes},
-    #     "ids": [note.id for note in notes],
-    # }
+    indgredients = []
+    for recipe in recipes:
+        indgredients.extend(recipe.indgredients)
+    indgredients_data = {
+        "dict": {ingredient.id: ingredient.to_dict() for ingredient in indgredients},
+        "ids": [ingredient.id for ingredient in indgredients],
+    }
     return {
         "user": user,
+        "ingredients": indgredients_data,
         "recipes": recipes_data
     }
 

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { loginThunk } from "../../store/actions/user";
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -11,16 +10,23 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AuthStyles from '../styles/AuthStyles';
+import { signupThunk } from "../../store/actions/user";
+import Whisk from "../../whisk.png"
 
-const LoginForm = () => {
+export default function SignupForm() {
     const classes = AuthStyles();
-    const [email, setEmail] = useState("chef@demo.io");
-    const [password, setPassword] = useState("omedfehc");
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(loginThunk(email, password));
+        dispatch(signupThunk(username, email, password));
+    };
+
+    const updateusername = (e) => {
+        setUsername(e.target.value);
     };
 
     const updateEmail = (e) => {
@@ -31,12 +37,11 @@ const LoginForm = () => {
         setPassword(e.target.value);
     };
 
-
     return (
-        <Container component="main" maxWidth="xs">
+        <Container className={classes.container} component="main" maxWidth="xs">
             <div className={classes.paper}>
                 {/* <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                    <img src={ Whisk } className={classes.whisk}/>
                 </Avatar> */}
                 <Typography className={classes.brand}>
                     recipes pls :)
@@ -49,6 +54,19 @@ const LoginForm = () => {
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <TextField
+                        autoComplete="fname"
+                        name="username"
+                        variant="outlined"
+                        required
+                        fullWidth
+                        id="username"
+                        label="username"
+                        autoFocus
+                        margin="normal"
+                        value={username}
+                        onChange={updateusername}
+                    />
+                    <TextField
                         variant="outlined"
                         margin="normal"
                         required
@@ -57,8 +75,7 @@ const LoginForm = () => {
                         label="email"
                         name="email"
                         autoComplete="email"
-                        autoFocus
-                        type="text"
+                        type="email"
                         value={email}
                         onChange={updateEmail}
                     />
@@ -80,7 +97,6 @@ const LoginForm = () => {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
                             className={classes.button}
                         >
                             continue
@@ -89,18 +105,15 @@ const LoginForm = () => {
                     <Grid container justify="center">
                         <Grid item className={classes.grid_item}>
                             <Typography className={classes.dont}>
-                                don't have an account?
-                                <Link href="/signup" className={classes.link}>
-                                create account
+                                already have an account?
+                                <Link href="/login" className={classes.link}>
+                                sign in
                                 </Link>
                             </Typography>
-
                         </Grid>
                     </Grid>
                 </form>
             </div>
         </Container>
     );
-};
-
-export default LoginForm;
+}

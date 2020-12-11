@@ -1,7 +1,7 @@
 import {
     SET_RECIPES,
     CREATE_RECIPE,
-    RENAME_RECIPE,
+    EDIT_RECIPE,
     DELETE_RECIPE,
     ADD_DIRECTION_TO_RECIPE,
     DELETE_DIRECTION_FROM_RECIPE,
@@ -24,7 +24,7 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         case SET_RECIPES:
             return action.recipes;
-        case RENAME_RECIPE:
+        case EDIT_RECIPE:
             newState.dict[action.recipe.id] = action.recipe;
             return newState;
         case CREATE_RECIPE:

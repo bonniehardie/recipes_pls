@@ -1,19 +1,15 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
 const theme = createMuiTheme({
-    fontFamily: [
-        'Fira Sans',
-        'sans-serif',
-    ].join(','),
+    // fontFamily: 'Roboto Mono',
     typography: {
-        fontFamily: [
-            'Fira Sans',
-            'sans-serif',
-        ].join(','),
+        fontFamily: 'Roboto Mono'
     },
+    
     palette: {
         primary: {
-            main: '#1A1A1A',
+            main: '#2e2e2e',
             contrastText: '#f8f8ff',
         },
         secondary: {
