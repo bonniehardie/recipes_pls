@@ -10,7 +10,7 @@ auth_routes = Blueprint('auth', __name__)
 
 def get_user_data(user):
 
-    recipes = Recipe.query.filter(Recipe.user_is == user['id'].options(
+    recipes = Recipe.query.filter(Recipe.user_id == user['id'].options(
         joinedload(Recipe.ingredients).all()
     ))
     recipes_data = [recipe.to_dict() for recipe in recipes]
@@ -34,16 +34,16 @@ def get_user_data(user):
     #     "ids": [notebook.id for notebook in notebooks]
     # }
 
-    indgredients = []
+    ingredients = []
     for recipe in recipes:
-        indgredients.extend(recipe.indgredients)
-    indgredients_data = {
-        "dict": {ingredient.id: ingredient.to_dict() for ingredient in indgredients},
-        "ids": [ingredient.id for ingredient in indgredients],
+        ingredients.extend(recipe.ingredients)
+    ingredients_data = {
+        "dict": {ingredient.id: ingredient.to_dict() for ingredient in ingredients},
+        "ids": [ingredient.id for ingredient in ingredients],
     }
     return {
         "user": user,
-        "ingredients": indgredients_data,
+        "ingredients": ingredients_data,
         "recipes": recipes_data
     }
 
