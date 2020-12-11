@@ -69,7 +69,7 @@ def login():
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
-        # print('***********************', user.to_dict())
+        print('***********************', user.to_dict())
         # login_user(user.to_dict())
         login_user(user)
         data = get_user_data(user.to_dict())
