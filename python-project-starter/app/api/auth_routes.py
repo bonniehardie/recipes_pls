@@ -19,21 +19,6 @@ def get_user_data(user):
         "ids": [recipes.id for recipe in recipes]
     }
 
-    # tags = Tag.query.filter(Tag.user_id == user['id']).options(
-    #     joinedload(Tag.notes)).all()
-    # tags_data = {
-    #     "dict": {tag.id: tag.to_dict() for tag in tags},
-    #     "ids": [tag.id for tag in tags]
-    # }
-
-    # notebooks = Notebook.query.filter(Notebook.user_id == user['id']).options(
-    #     joinedload(Notebook.notes).joinedload(Note.tags)).all()
-    # notebooks_data = [notebook.to_dict() for notebook in notebooks]
-    # notebooks_data = {
-    #     "dict": {notebook.id: notebook.to_dict() for notebook in notebooks},
-    #     "ids": [notebook.id for notebook in notebooks]
-    # }
-
     ingredients = []
     for recipe in recipes:
         ingredients.extend(recipe.ingredients)
@@ -77,17 +62,18 @@ def login():
     Logs a user in
     """
     form = LoginForm()
-    print('+++++++++++++++++++', request.get_json(), '+++++++++++++++++++')
+    # print('+++++++++++++++++++', request.get_json(), '+++++++++++++++++++')
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
-        print('***********************', user)
+        # print('***********************', user.to_dict())
+        # login_user(user.to_dict())
         login_user(user)
         data = get_user_data(user.to_dict())
-        print('*************', data)
+        # print('*************', data)
         return data
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

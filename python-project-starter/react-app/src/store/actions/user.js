@@ -47,11 +47,13 @@ export const logoutThunk = () => async (dispatch) => {
 
 export const signupThunk = (username, email, password) => async (dispatch) => {
     const data = await signUp(username, email, password);
-    const { user, directions, ingredients, ratings, recipes, tools } = data;
+    if (!data.errors) {
+        const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));
         dispatch(setRecipes(recipes));
         dispatch(setDirections(directions));
         dispatch(setIngredients(ingredients));
         dispatch(setRatings(ratings));
         dispatch(setTools(tools));
+    }
 }
