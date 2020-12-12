@@ -14,8 +14,7 @@ import {
 } from '../actions/recipes';
 
 const initialState = {
-    dict: {},
-    ids: []
+    
 }
 
 export default function reducer(state = initialState, action) {

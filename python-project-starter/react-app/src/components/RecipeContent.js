@@ -9,13 +9,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { useSelector } from 'react-redux';
-
+import IngredientList from './IngredientList';
 
 export default function RecipeContent() {
   const classes = RecipeContentStyles();
   const recipe = useSelector(state => state.recipes[1])
-  console.log(recipe)
-  // console.log(Object.keys(recipe))
   if (recipe === undefined) return null;
   return (
     <div className={classes.container}>
@@ -29,32 +27,9 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>ingredients</Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
-              <List className={classes.list}>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  <Typography>
-                    {recipe.backstory}
-                    </Typography>
-                </ListItem>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  <Typography>5</Typography>
-                  <Typography>sprigs</Typography>
-                  <Typography>fresh dill</Typography>
-                </ListItem>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  <Typography>1</Typography>
-                  <Typography>small</Typography>
-                  <Typography>lemon</Typography>
-                </ListItem>
-                <ListItem>
-                  <FiberManualRecordIcon className={classes.bullet}/>
-                  <Typography>1</Typography>
-                  <Typography>clove </Typography>
-                  <Typography>garlic</Typography>
-                </ListItem>
-              </List>
+            <List className={classes.list}>
+              <IngredientList />
+            </List>
           </AccordionDetails>
         </Accordion>
 

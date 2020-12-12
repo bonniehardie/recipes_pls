@@ -6,8 +6,7 @@ import {
 } from '../actions/ratings';
 
 let initialState = {
-    dict: {},
-    ids: [],
+    
 };
 
 export default function reducer(state = initialState, action) {

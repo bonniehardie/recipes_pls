@@ -6,16 +6,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import RecipeAppBarStyles from './styles/RecipeAppBarStyles';
-
+import Typography from '@material-ui/core/Typography';
 
 export default function RecipeAppBar() {
   const classes = RecipeAppBarStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar >
-        <AppBar className={classes.accent} position="static">
-          <Toolbar className={classes.toolbar}>
+      <AppBar className={classes.background}>
+          <Toolbar className={classes.toolbar} position='static'>
             <IconButton
               edge="start"
               className={classes.menuButton}
@@ -23,9 +22,9 @@ export default function RecipeAppBar() {
             >
               <MenuIcon className={classes.icons}/>
             </IconButton>
-            <div className={classes.title} noWrap>
+            <Typography className={classes.title} noWrap>
               salmon and asparagus in foil packets
-            </div>
+            </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
               <SearchIcon />
             </IconButton>
@@ -33,7 +32,6 @@ export default function RecipeAppBar() {
               <MoreIcon />
             </IconButton>
           </Toolbar>
-        </AppBar>
       </AppBar>
     </div>
   );
