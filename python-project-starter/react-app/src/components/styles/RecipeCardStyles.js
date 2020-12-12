@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 
-const RecipeCardStylesStyles = makeStyles({
+const RecipeCardStyles = makeStyles({
     root: {
         maxWidth: 345,
     },

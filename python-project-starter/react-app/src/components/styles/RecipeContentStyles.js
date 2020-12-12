@@ -8,38 +8,41 @@ const RecipeContentStyles = makeStyles((theme) => ({
         // color: '#E8D7CF'
         // color: '#BAA6AC',
         color: '#2e2e2e',
-        width: '100%'
-
+        width: '100%',
     },
     bullet: {
         height: 10,
         color: '#BAA6AC'
     },
     container: {
-        backgroundColor: 'grey',
+        // overflow: 'scroll',
         backgroundColor: 'white',
         display: 'flex',
         justifyContent: 'center',
         height: '100%',
         width: '100%',
-        padding: '20%'
+        padding: '15%'
     },
 
     details: {
-        display: 'relative',
+        // display: 'relative',
+        // overflow: 'scroll'
     },
     icon: {
         color: '#BAA6AC',
         '&:hover': {
             color: '#EDE8EA'
         },
+        paddingRight: 4
     },
     list: {
         display: 'absolute',
-        left: 50
+        left: 30,
+        width: '90%'
     },
     root: {
         width: '80%',
+        // overflow: 'scroll'
     },
     heading: {
         paddingLeft: 10,

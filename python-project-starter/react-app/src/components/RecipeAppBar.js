@@ -7,10 +7,14 @@ import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import RecipeAppBarStyles from './styles/RecipeAppBarStyles';
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
+
 
 export default function RecipeAppBar() {
   const classes = RecipeAppBarStyles();
+  const recipe = useSelector(state => state.recipes[1])
 
+  if (recipe === undefined) return null;
   return (
     <div className={classes.root}>
       <AppBar className={classes.background}>
@@ -23,7 +27,7 @@ export default function RecipeAppBar() {
               <MenuIcon className={classes.icons}/>
             </IconButton>
             <Typography className={classes.title} noWrap>
-              salmon and asparagus in foil packets
+              {recipe.name}
             </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
               <SearchIcon />

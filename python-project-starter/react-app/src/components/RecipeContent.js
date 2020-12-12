@@ -5,11 +5,10 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { useSelector } from 'react-redux';
 import IngredientList from './IngredientList';
+import DirectionList from './DirectionList';
+import ToolList from './ToolList';
 
 export default function RecipeContent() {
   const classes = RecipeContentStyles();
@@ -27,9 +26,7 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>ingredients</Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
-            <List className={classes.list}>
-              <IngredientList />
-            </List>
+            <IngredientList />
           </AccordionDetails>
         </Accordion>
 
@@ -42,10 +39,7 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>directions</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
-            </Typography>
+            <DirectionList />
           </AccordionDetails>
         </Accordion>
 
@@ -58,10 +52,7 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>special equipment needed</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
-            </Typography>
+            <ToolList />
           </AccordionDetails>
         </Accordion>
 
@@ -75,7 +66,7 @@ export default function RecipeContent() {
           </AccordionSummary>
           <AccordionDetails>
               <Typography>
-                {/* {recipes.name} */}
+                {recipe.backstory}
               </Typography>
           </AccordionDetails>
         </Accordion>
