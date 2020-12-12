@@ -1,8 +1,8 @@
-"""first migration in flask app
+"""added less_to_dict function
 
-Revision ID: f5e02371f68f
+Revision ID: 74e436c30bfc
 Revises: 
-Create Date: 2020-12-03 21:59:42.953089
+Create Date: 2020-12-11 19:18:13.020715
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f5e02371f68f'
+revision = '74e436c30bfc'
 down_revision = None
 branch_labels = None
 depends_on = None

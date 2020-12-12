@@ -8,7 +8,7 @@ rating_routes = Blueprint('ratings', __name__)
 
 
 @rating_routes.route('/')
-# @login_required
+@login_required
 def all_ratings(userid, recipeid):
     ratings = Rating.query.filter(
         Rating.recipe_id == recipeid).all()
@@ -16,7 +16,7 @@ def all_ratings(userid, recipeid):
 
 
 @rating_routes.route('/', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def create_rating(userid, recipeid):
     req_data = json.loads(request.data)
     tasty = req_data['tasty']
@@ -33,7 +33,7 @@ def create_rating(userid, recipeid):
 
 
 @rating_routes.route('/<int:ratingid>', methods=['PUT'], strict_slashes=False)
-# @login_required
+@login_required
 def edit_rating(userid, recipeid, ratingid):
     req_data = json.loads(request.data)
     tasty = req_data['tasty']
@@ -47,7 +47,7 @@ def edit_rating(userid, recipeid, ratingid):
 
 
 @rating_routes.route('/<int:ratingid>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def delete_rating(userid, recipeid, ratingid):
     rating = Rating.query.filter(Rating.id == ratingid).first()
     db.session.delete(rating)

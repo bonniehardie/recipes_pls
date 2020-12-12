@@ -8,13 +8,13 @@ tool_routes = Blueprint('tools', __name__)
 
 
 @tool_routes.route('/')
-# @login_required
+@login_required
 def all_tools(userid, recipeid):
     tools = Tool.query.filter(Tool.recipe_id == recipeid).all()
     return {"tools": [tool.to_dict() for tool in tools]}
 
 @tool_routes.route('/', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def create_tool(userid, recipeid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -28,7 +28,7 @@ def create_tool(userid, recipeid):
 
 
 @tool_routes.route('/<int:toolid>', methods=['PUT'], strict_slashes=False)
-# @login_required
+@login_required
 def edit_tool(userid, recipeid, toolid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -40,7 +40,7 @@ def edit_tool(userid, recipeid, toolid):
 
 
 @tool_routes.route('/<int:toolid>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def delete_tool(userid, recipeid, toolid):
     tool = Tool.query.filter(Tool.id == toolid).first()
     db.session.delete(tool)

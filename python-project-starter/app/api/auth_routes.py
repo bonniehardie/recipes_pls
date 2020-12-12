@@ -3,54 +3,39 @@ from app.models import db, Direction, Ingredient, Rating, Recipe, Tool, User
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
+from sqlalchemy.orm import joinedload
 
 auth_routes = Blueprint('auth', __name__)
 
 
 def get_user_data(user):
+    recipes_query = Recipe.query.all()
+    tools = {}
+    ingredients = {}
+    directions = {}
+    ratings = {}
+    recipes = {}
+    for recipe in recipes_query:
+        recipes[recipe.id] = recipe.less_to_dict()
+        for tool in recipe.tools:
+            tools[tool.id] = tool.to_dict()
+        for ingredient in recipe.ingredients:
+            ingredients[ingredient.id] = ingredient.to_dict()
+        for direction in recipe.directions:
+            directions[direction.id] = direction.to_dict()
+        for rating in recipe.ratings:
+            ratings[rating.id] = rating.to_dict()
 
-    recipes = Recipe.query.filter(Recipe.user_is == user['id'].options(
-        joinedload(Recipe.ingredients).all()
-    ))
-    recipes_data = [recipe.to_dict() for recipe in recipes]
-    recipes_data = {
-        "dict": {recipes.id: recipes.to_dict() for recipe in recipes},
-        "ids": [recipes.id for recipe in recipes]
-    }
-
-    # tags = Tag.query.filter(Tag.user_id == user['id']).options(
-    #     joinedload(Tag.notes)).all()
-    # tags_data = {
-    #     "dict": {tag.id: tag.to_dict() for tag in tags},
-    #     "ids": [tag.id for tag in tags]
-    # }
-
-    # notebooks = Notebook.query.filter(Notebook.user_id == user['id']).options(
-    #     joinedload(Notebook.notes).joinedload(Note.tags)).all()
-    # notebooks_data = [notebook.to_dict() for notebook in notebooks]
-    # notebooks_data = {
-    #     "dict": {notebook.id: notebook.to_dict() for notebook in notebooks},
-    #     "ids": [notebook.id for notebook in notebooks]
-    # }
-
-    # notes = []
-    # for notebook in notebooks:
-    #     notes.extend(notebook.notes)
-    # notes_data = {
-    #     "dict": {note.id: note.to_dict() for note in notes},
-    #     "ids": [note.id for note in notes],
-    # }
-
-    # return {
-    #     "user": user,
-    #     "tags": tags_data,
-    #     "notebooks": notebooks_data,
-    #     "notes": notes_data
-    # }
     return {
         "user": user,
-        "recipes": recipes_data
+        "ingredients": ingredients,
+        "recipes": recipes,
+        "directions": directions,
+        "tools": tools,
+        "ratings": ratings
     }
+
+
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -73,7 +58,7 @@ def authenticate():
         data = get_user_data(current_user.to_dict())
         return data
 
-    return {'errors': ['Unauthorized']}, 401
+    return {'errors': ['Unauthorized']}
 
 
 @auth_routes.route('/login', methods=['POST'])
@@ -82,15 +67,18 @@ def login():
     Logs a user in
     """
     form = LoginForm()
-    print(request.get_json())
+    # print('+++++++++++++++++++', request.get_json(), '+++++++++++++++++++')
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
+        print('***********************', user.to_dict())
+        # login_user(user.to_dict())
         login_user(user)
         data = get_user_data(user.to_dict())
+        print('*************', data)
         return data
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 

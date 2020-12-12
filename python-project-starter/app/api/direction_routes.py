@@ -8,14 +8,14 @@ direction_routes = Blueprint('directions', __name__)
 
 
 @direction_routes.route('/')
-# @login_required
+@login_required
 def all_directions(userid, recipeid):
     directions = Direction.query.filter(Direction.recipe_id == recipeid).all()
     return {"directions": [direction.to_dict() for direction in directions]}
 
 
 @direction_routes.route('/', methods=['POST'], strict_slashes=False)
-# @login_required
+@login_required
 def create_direction(userid, recipeid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -31,7 +31,7 @@ def create_direction(userid, recipeid):
 
 
 @direction_routes.route('/<int:directionid>', methods=['PUT'], strict_slashes=False)
-# @login_required
+@login_required
 def edit_direction(userid, recipeid, directionid):
     req_data = json.loads(request.data)
     name = req_data['name']
@@ -45,7 +45,7 @@ def edit_direction(userid, recipeid, directionid):
 
 
 @direction_routes.route('/<int:directionid>', methods=['DELETE'], strict_slashes=False)
-# @login_required
+@login_required
 def delete_direction(userid, recipeid, directionid):
     direction = Direction.query.filter(Direction.id == directionid).first()
     db.session.delete(direction)
