@@ -18,13 +18,13 @@ def get_user_data(user):
     for recipe in recipes_query:
         recipes[recipe.id] = recipe.less_to_dict()
         for tool in recipe.tools:
-            tools[tool.id] = tool
+            tools[tool.id] = tool.to_dict()
         for ingredient in recipe.ingredients:
-            ingredients[ingredient.id] = ingredient
+            ingredients[ingredient.id] = ingredient.to_dict()
         for direction in recipe.directions:
-            directions[direction.id] = direction
+            directions[direction.id] = direction.to_dict()
         for rating in recipe.ratings:
-            ratings[rating.id] = rating
+            ratings[rating.id] = rating.to_dict()
 
     return {
         "user": user,

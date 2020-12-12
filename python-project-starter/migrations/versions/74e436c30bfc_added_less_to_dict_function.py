@@ -1,8 +1,8 @@
-"""UserMixin added to user model
+"""added less_to_dict function
 
-Revision ID: 927d19e84893
+Revision ID: 74e436c30bfc
 Revises: 
-Create Date: 2020-12-10 22:45:13.506295
+Create Date: 2020-12-11 19:18:13.020715
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '927d19e84893'
+revision = '74e436c30bfc'
 down_revision = None
 branch_labels = None
 depends_on = None

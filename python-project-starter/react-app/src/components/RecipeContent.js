@@ -11,12 +11,12 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import { useSelector } from 'react-redux';
 
 
-
 export default function RecipeContent() {
   const classes = RecipeContentStyles();
-  const recipes = useSelector(state => state.recipes)
-  const recipes_dict_1 = recipes.dict[1]
-  // console.log(recipes_dict_1)
+  const recipe = useSelector(state => state.recipes[1])
+  console.log(recipe)
+  // console.log(Object.keys(recipe))
+  if (recipe === undefined) return null;
   return (
     <div className={classes.container}>
       <div className={classes.root}>
@@ -32,7 +32,9 @@ export default function RecipeContent() {
               <List className={classes.list}>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
-                  <Typography>1 filet salmon</Typography>
+                  <Typography>
+                    {recipe.backstory}
+                    </Typography>
                 </ListItem>
                 <ListItem>
                   <FiberManualRecordIcon className={classes.bullet}/>
@@ -98,7 +100,7 @@ export default function RecipeContent() {
           </AccordionSummary>
           <AccordionDetails>
               <Typography>
-                {/* {recipes.dict[1].backstory} */}
+                {/* {recipes.name} */}
               </Typography>
           </AccordionDetails>
         </Accordion>
