@@ -8,7 +8,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import AppBarStyles from './styles/AppBarStyles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
-
+import NewRecipe from './dialogs/NewRecipe';
 
 export default function ProfileAppBar() {
   const classes = AppBarStyles();
@@ -27,11 +27,11 @@ export default function ProfileAppBar() {
               <MenuIcon className={classes.icons}/>
             </IconButton>
             <Typography className={classes.hello}>
-              
-              {`hello, ${user.username}`}
+
+              {`hello, ${user.username} :)`}
             </Typography>
             <Typography className={classes.title} noWrap>
-               recipes
+               my recipes
             </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
               <SearchIcon />
@@ -39,6 +39,7 @@ export default function ProfileAppBar() {
             <IconButton className={classes.icons} aria-label="display more actions" edge="end" color="inherit">
               <MoreIcon />
             </IconButton>
+            <NewRecipe />
           </Toolbar>
       </AppBar>
     </div>

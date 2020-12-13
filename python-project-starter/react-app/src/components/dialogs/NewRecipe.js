@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -6,18 +6,37 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogStyles from '../styles/DialogStyles';
+import { useDispatch, useSelector } from 'react-redux';
+import { createRecipeThunk } from '../../store/actions/recipes';
 
 
 export default function NewRecipe() {
-  const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.user)
+    const [name, setName] = useState('');
+    const [pictureUrl, setPictureUrl] = useState('');
+    const [backstory, setBackstory] = useState('');
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleSubmit = () => {
+        setOpen(false);
+        dispatch(createRecipeThunk(user.id, name, pictureUrl, backstory))
+    };
+    const update_name = (e) => {
+        setName(e.target.value)
+    };
+    const update_picture_url = (e) => {
+        setPictureUrl(e.target.value)
+    };
+    const update_backstory = (e) => {
+        setBackstory(e.target.value)
+    };
 
   return (
     <div>
@@ -28,6 +47,7 @@ export default function NewRecipe() {
         <DialogTitle id="form-dialog-title">new recipe</DialogTitle>
         <DialogContent>
           <TextField
+            onChange={update_name}
             autoFocus
             margin="dense"
             id="name"
@@ -35,16 +55,18 @@ export default function NewRecipe() {
             fullWidth
           />
           <TextField
+            onChange={update_picture_url}
             autoFocus
             margin="dense"
-            id="picture url"
-            label="quantity"
+            id="picture_url"
+            label="picture"
             fullWidth
           />
           <TextField
+            onChange={update_backstory}
             autoFocus
             margin="dense"
-            id="name"
+            id="backstory"
             label="backstory"
             fullWidth
           />
@@ -53,7 +75,7 @@ export default function NewRecipe() {
           <Button onClick={handleClose}>
             cancel
           </Button>
-          <Button onClick={handleClose}>
+          <Button onClick={handleSubmit}>
             create
           </Button>
         </DialogActions>

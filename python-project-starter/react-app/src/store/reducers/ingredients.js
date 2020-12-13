@@ -6,7 +6,7 @@ import {
 } from '../actions/ingredients';
 
 let initialState = {
-    
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,15 +18,13 @@ export default function reducer(state = initialState, action) {
         case SET_INGREDIENTS:
             return action.ingredients;
         case CREATE_INGREDIENT:
-            newState.dict[action.ingredient.id] = action.ingredient;
-            newState.ids.unshift(action.ingredient.id);
+            newState[action.ingredient.id] = action.ingredient;
             return newState;
         case UPDATE_INGREDIENT:
-            newState.dict[action.ingredient.id] = action.ingredient;
+            newState[action.ingredient.id] = action.ingredient;
             return newState;
         case DELETE_INGREDIENT:
-            delete newState.dict[action.ingredientId];
-            newState.ids = newState.ids.filter(id => id !== Number(action.ingredientId));
+            delete newState[action.ingredientId];
             return newState;
         default:
             return state;

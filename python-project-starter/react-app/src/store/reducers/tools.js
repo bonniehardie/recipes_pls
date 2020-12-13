@@ -6,7 +6,7 @@ import {
 } from '../actions/tools';
 
 let initialState = {
-    
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,15 +18,13 @@ export default function reducer(state = initialState, action) {
         case SET_TOOLS:
             return action.tools;
         case CREATE_TOOL:
-            newState.dict[action.tool.id] = action.tool;
-            newState.ids.unshift(action.tool.id);
+            newState[action.tool.id] = action.tool;
             return newState;
         case UPDATE_TOOL:
-            newState.dict[action.tool.id] = action.tool;
+            newState[action.tool.id] = action.tool;
             return newState;
         case DELETE_TOOL:
-            delete newState.dict[action.toolId];
-            newState.ids = newState.ids.filter(id => id !== Number(action.toolId));
+            delete newState[action.toolId];
             return newState;
         default:
             return state;

@@ -13,8 +13,7 @@ export default function MainPage() {
       <main className={ classes.main }>
         <Switch>
           {/* <Route path="/recipes/<int:recipeid>"> */}
-          <Route path="recipes">
-            <RecipeContent />
+          <Route path="/recipes">
           </Route>
           <Route path="/profile">
             <Profile />

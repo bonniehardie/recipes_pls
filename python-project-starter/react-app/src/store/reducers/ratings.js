@@ -6,7 +6,7 @@ import {
 } from '../actions/ratings';
 
 let initialState = {
-    
+
 };
 
 export default function reducer(state = initialState, action) {
@@ -18,15 +18,13 @@ export default function reducer(state = initialState, action) {
         case SET_RATINGS:
             return action.ratings;
         case CREATE_RATING:
-            newState.dict[action.rating.id] = action.rating;
-            newState.ids.unshift(action.rating.id);
+            newState[action.rating.id] = action.rating;
             return newState;
         case UPDATE_RATING:
-            newState.dict[action.rating.id] = action.rating;
+            newState[action.rating.id] = action.rating;
             return newState;
         case DELETE_RATING:
-            delete newState.dict[action.ratingId];
-            newState.ids = newState.ids.filter(id => id !== Number(action.ratingId));
+            delete newState[action.ratingId];
             return newState;
         default:
             return state;

@@ -15,19 +15,19 @@ export default function Profile() {
 
   return (
     <Box className={classes.container}>
-      {/* <Box className={classes.profile_container}>
+      <Box className={classes.profile_container}>
         <ProfileAppBar />
          <Box className={classes.recipe_container}>
           <RecipeMenu />
          </Box>
-      </Box> */}
-      <Box>
-        {/* <RecipePicture /> */}
-        {/* <Picture /> */}
+      </Box>
+      {/* <Box>
+        <RecipePicture />
+        <Picture />
         <RecipeAppBar />
         <RecipeContent />
         <Ratings />
-      </Box>
+      </Box> */}
     </Box>
   );
 }
