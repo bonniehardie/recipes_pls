@@ -1,31 +1,18 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import RecipePictureStyles from './styles/RecipePictureStyles';
+import { useSelector } from 'react-redux';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-      // width: theme.spacing(16),
-      // height: theme.spacing(16),
-      width: '500px',
-      height: '500px'
-    },
-  },
-  paper: {
-    backgroundImage: `url(https://savorandsavvy.com/wp-content/uploads/2019/07/Baked-Salmon-recipe-1.jpg)`,
-    maxWidth: '100%'
-  }
-}));
 
 export default function RecipePicture() {
-  const classes = useStyles();
+  const classes = RecipePictureStyles();
+  const recipe = useSelector(state => state.recipes[1])
 
-  return (
-    <div className={classes.root}>
-      <Paper className={classes.paper} elevation={3} />
-    </div>
-  );
+  if (recipe === undefined) return null;
+    return (
+      <div className={classes.root}>
+        <h1>{`here is the url ${recipe.picture_url}`}</h1>
+        <Paper image={recipe.picture_url} className={classes.paper} elevation={3} />
+      </div>
+    );
 }

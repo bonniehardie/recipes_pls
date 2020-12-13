@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const RecipeAppBarStyles = makeStyles((theme) => ({
+const AppBarStyles = makeStyles((theme) => ({
     background: {
-        backgroundColor: '#E8D7CF'
+        backgroundColor: '#A1D8E5'
     },
     root: {
         flexGrow: 1,
@@ -12,12 +12,17 @@ const RecipeAppBarStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(2),
         color: '#000300'
     },
+    hello: {
+        fontSize: '20px',
+        paddingTop: 7,
+        color: '#2e2e2e'
+    },
     toolbar: {
         position: 'relative',
         top: 5,
         minHeight: 135,
         height: '200px',
-        backgroundColor: '#E8D7CF',
+        backgroundColor: '#A1D8E5',
         alignItems: 'flex-start',
         paddingTop: 5,
         paddingBottom: 15
@@ -38,4 +43,4 @@ const RecipeAppBarStyles = makeStyles((theme) => ({
 
     }
 }));
-export default RecipeAppBarStyles;
+export default AppBarStyles;

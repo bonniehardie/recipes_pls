@@ -1,13 +1,22 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const ProfileStyles = makeStyles((theme) => ({
-    container: {
-        overflow: 'scroll'
+    card_box: {
+        margin: 5
     },
-    recipe_container: {
-        backgroundColor: 'red',
+    container: {
+        overflow: 'scroll',
         display: 'flex',
         justifyContent: 'center',
+    },
+    // profile_container: {
+    //     display: 'relative'
+    // },
+    recipe_container: {
+        padding: 10
+
+    },
+    scroll: {
         overflow: 'scroll'
     }
 }));

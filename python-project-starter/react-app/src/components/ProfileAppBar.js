@@ -10,11 +10,11 @@ import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 
 
-export default function RecipeAppBar() {
+export default function ProfileAppBar() {
   const classes = AppBarStyles();
-  const recipe = useSelector(state => state.recipes[1])
+  const user = useSelector(state => state.user)
 
-  if (recipe === undefined) return null;
+  if (user === undefined) return null;
   return (
     <div className={classes.root}>
       <AppBar className={classes.background}>
@@ -26,8 +26,12 @@ export default function RecipeAppBar() {
             >
               <MenuIcon className={classes.icons}/>
             </IconButton>
+            <Typography className={classes.hello}>
+              
+              {`hello, ${user.username}`}
+            </Typography>
             <Typography className={classes.title} noWrap>
-              {recipe.name}
+               recipes
             </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
               <SearchIcon />

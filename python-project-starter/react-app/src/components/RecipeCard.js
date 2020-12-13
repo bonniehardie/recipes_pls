@@ -10,7 +10,7 @@ import RecipeCardStyles from './styles/RecipeCardStyles';
 import { useSelector } from 'react-redux';
 
 
-export default function MediaCard() {
+export default function RecipeCard(props) {
   const classes = RecipeCardStyles();
   const recipe = useSelector(state => state.recipes[1])
   if (recipe === undefined) return null;
@@ -20,8 +20,9 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://cafedelites.com/wp-content/uploads/2017/12/Perfect-Juicy-Roast-Chicken-IMAGE-28.jpg"
-          title="Receipe.name"
+          image={props.picture}
+          // image="https://cafedelites.com/wp-content/uploads/2017/12/Perfect-Juicy-Roast-Chicken-IMAGE-28.jpg"
+          title="Recipe.name"
         />
         <CardContent>
           <Typography >
@@ -33,8 +34,8 @@ export default function MediaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          go to recipe
+        <Button className={classes.button}size="small" color="primary">
+          let's cook!
         </Button>
       </CardActions>
     </Card>

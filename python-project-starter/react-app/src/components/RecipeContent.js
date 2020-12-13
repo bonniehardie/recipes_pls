@@ -9,6 +9,11 @@ import { useSelector } from 'react-redux';
 import IngredientList from './IngredientList';
 import DirectionList from './DirectionList';
 import ToolList from './ToolList';
+import NewIngredient from './dialogs/NewIngredient';
+import NewDirection from './dialogs/NewDirection';
+import NewTool from './dialogs/NewTool';
+import Ratings from './Ratings';
+
 
 export default function RecipeContent() {
   const classes = RecipeContentStyles();
@@ -27,6 +32,7 @@ export default function RecipeContent() {
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
             <IngredientList />
+            <NewIngredient />
           </AccordionDetails>
         </Accordion>
 
@@ -40,6 +46,7 @@ export default function RecipeContent() {
           </AccordionSummary>
           <AccordionDetails>
             <DirectionList />
+            <NewDirection />
           </AccordionDetails>
         </Accordion>
 
@@ -49,10 +56,11 @@ export default function RecipeContent() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>special equipment needed</Typography>
+            <Typography className={classes.heading}>tools/equipent needed</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <ToolList />
+            <NewTool />
           </AccordionDetails>
         </Accordion>
 
@@ -62,7 +70,7 @@ export default function RecipeContent() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>back story</Typography>
+            <Typography className={classes.heading}>backstory</Typography>
           </AccordionSummary>
           <AccordionDetails>
               <Typography>
@@ -71,6 +79,10 @@ export default function RecipeContent() {
           </AccordionDetails>
         </Accordion>
       </div>
+      <div className={classes.ratings}>
+        <Ratings />
+      </div>
+
     </div>
   );
 }

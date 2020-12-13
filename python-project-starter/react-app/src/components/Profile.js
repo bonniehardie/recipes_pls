@@ -5,17 +5,29 @@ import RecipeContent from './RecipeContent';
 import RecipeAppBar from './RecipeAppBar';
 import RecipeCard from './RecipeCard';
 import RecipeMenu from './RecipeMenu';
+import ProfileAppBar from './ProfileAppBar';
+import RecipePicture from './RecipePicture';
+import Picture from './Picture';
+import Ratings from './Ratings';
 
 export default function Profile() {
   const classes = ProfileStyles();
 
   return (
     <Box className={classes.container}>
-      <RecipeAppBar />
-      {/* <Box className={classes.recipe_container}>
-        <RecipeMenu /> */}
-      {/* </Box> */}
-      <RecipeContent />
+      {/* <Box className={classes.profile_container}>
+        <ProfileAppBar />
+         <Box className={classes.recipe_container}>
+          <RecipeMenu />
+         </Box>
+      </Box> */}
+      <Box>
+        {/* <RecipePicture /> */}
+        {/* <Picture /> */}
+        <RecipeAppBar />
+        <RecipeContent />
+        <Ratings />
+      </Box>
     </Box>
   );
 }
