@@ -30,10 +30,10 @@ export default function RecipeAppBar() {
               {recipe.name}
             </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
-              <SearchIcon />
+              {/* <SearchIcon /> */}
             </IconButton>
             <IconButton className={classes.icons} aria-label="display more actions" edge="end" color="inherit">
-              <MoreIcon />
+              {/* <MoreIcon /> */}
             </IconButton>
           </Toolbar>
       </AppBar>

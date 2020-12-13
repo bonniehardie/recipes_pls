@@ -1,3 +1,4 @@
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const ProfileStyles = makeStyles((theme) => ({
@@ -8,12 +9,18 @@ const ProfileStyles = makeStyles((theme) => ({
         overflow: 'scroll',
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
+        height: '800px',
+        // backgroundColor: 'red'
+        // display: 'relative'
     },
     // profile_container: {
     //     display: 'relative'
     // },
     recipe_container: {
-        padding: 10
+        // display: 'absolute',
+        // top: '800px',
+        // padding: 10
 
     },
     scroll: {

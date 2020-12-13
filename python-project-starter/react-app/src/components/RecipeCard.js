@@ -7,13 +7,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import RecipeCardStyles from './styles/RecipeCardStyles';
-import { useSelector } from 'react-redux';
-
+import Link from '@material-ui/core/Link';
 
 export default function RecipeCard(props) {
   const classes = RecipeCardStyles();
-  const recipe = useSelector(state => state.recipes[1])
-  if (recipe === undefined) return null;
+  // const recipe = useSelector(state => state.recipes[1])
+  // if (recipe === undefined) return null;
 
   return (
     <Card className={classes.root}>
@@ -26,15 +25,15 @@ export default function RecipeCard(props) {
         />
         <CardContent>
           <Typography >
-            {recipe.name}
+            {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {recipe.backstory}
+            {props.backstory}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button className={classes.button}size="small" color="primary">
+        <Button href="http://www.google.com/" href={props.href} className={classes.button}size="small" color="primary">
           let's cook!
         </Button>
       </CardActions>

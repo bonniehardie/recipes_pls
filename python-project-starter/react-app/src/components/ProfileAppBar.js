@@ -34,10 +34,10 @@ export default function ProfileAppBar() {
                my recipes
             </Typography>
             <IconButton className={classes.icons} aria-label="search" color="inherit">
-              <SearchIcon />
+              {/* <SearchIcon /> */}
             </IconButton>
             <IconButton className={classes.icons} aria-label="display more actions" edge="end" color="inherit">
-              <MoreIcon />
+              {/* <MoreIcon /> */}
             </IconButton>
             <NewRecipe />
           </Toolbar>
