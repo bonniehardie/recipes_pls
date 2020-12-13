@@ -33,7 +33,10 @@ export default function RecipeCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button href="http://www.google.com/" href={props.href} className={classes.button}size="small" color="primary">
+        <Button
+        href='www.google.com'
+        // href={props.href}
+        className={classes.button}size="small" color="primary">
           let's cook!
         </Button>
       </CardActions>

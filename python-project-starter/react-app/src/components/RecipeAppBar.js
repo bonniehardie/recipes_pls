@@ -10,9 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 
 
-export default function RecipeAppBar() {
+export default function RecipeAppBar(props) {
+  const id = props.recipeId
   const classes = AppBarStyles();
-  const recipe = useSelector(state => state.recipes[1])
+  const recipe = useSelector(state => state.recipes[id])
 
   if (recipe === undefined) return null;
   return (

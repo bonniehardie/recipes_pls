@@ -4,6 +4,7 @@ import { Box } from '@material-ui/core';
 import MainPageStyles from './styles/MainPageStyles';
 import RecipeContent from './RecipeContent';
 import Profile from './Profile';
+import RecipeView from './RecipeView';
 
 export default function MainPage() {
   const classes = MainPageStyles();
@@ -12,8 +13,8 @@ export default function MainPage() {
     <Box className={ classes.mainpageContainer }>
       <main className={ classes.main }>
         <Switch>
-          {/* <Route path="/recipes/<int:recipeid>"> */}
-          <Route path="/recipes">
+          <Route path='/recipes/:id'>
+            <RecipeView recipeId='3'/>
           </Route>
           <Route path="/profile">
             <Profile />

@@ -24,7 +24,7 @@ const ProfileStyles = makeStyles((theme) => ({
 
     },
     scroll: {
-        overflow: 'scroll'
+        // overflow: 'scroll',
     }
 }));
 

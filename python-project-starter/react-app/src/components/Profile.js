@@ -21,13 +21,6 @@ export default function Profile() {
           <RecipeMenu />
          </Box>
       </Box>
-      {/* <Box>
-        <RecipePicture />
-        <Picture />
-        <RecipeAppBar />
-        <RecipeContent />
-        <Ratings />
-      </Box> */}
     </Box>
   );
 }
