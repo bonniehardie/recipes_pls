@@ -7,9 +7,10 @@ import RecipeContentStyles from './styles/RecipeContentStyles';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 
-export default function ToolList() {
+export default function ToolList(props) {
+    const recipeId = props.recipeId
     const classes = RecipeContentStyles();
-    const recipe = useSelector(state => state.recipes[1])
+    const recipe = useSelector(state => state.recipes[recipeId])
     const tools = useSelector(state => state.tools)
 
     return (

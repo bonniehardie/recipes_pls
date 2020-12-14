@@ -11,9 +11,9 @@ import { useSelector } from 'react-redux';
 
 
 export default function RecipeAppBar(props) {
-  const id = props.recipeId
+  const recipeId = props.recipeId
   const classes = AppBarStyles();
-  const recipe = useSelector(state => state.recipes[id])
+  const recipe = useSelector(state => state.recipes[recipeId])
 
   if (recipe === undefined) return null;
   return (

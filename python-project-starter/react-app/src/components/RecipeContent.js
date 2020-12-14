@@ -15,9 +15,10 @@ import NewTool from './dialogs/NewTool';
 import Ratings from './Ratings';
 
 
-export default function RecipeContent() {
+export default function RecipeContent(props) {
   const classes = RecipeContentStyles();
-  const recipe = useSelector(state => state.recipes[1])
+  const recipeId = props.recipeId
+  const recipe = useSelector(state => state.recipes[recipeId])
   if (recipe === undefined) return null;
   return (
     <div className={classes.container}>
@@ -31,7 +32,7 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>ingredients</Typography>
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
-            <IngredientList />
+            <IngredientList recipeId={props.recipeId}/>
             <NewIngredient />
           </AccordionDetails>
         </Accordion>
@@ -45,7 +46,7 @@ export default function RecipeContent() {
             <Typography className={classes.heading}>directions</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <DirectionList />
+            <DirectionList recipeId={props.recipeId}/>
             <NewDirection />
           </AccordionDetails>
         </Accordion>
@@ -56,10 +57,10 @@ export default function RecipeContent() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>tools/equipent needed</Typography>
+            <Typography className={classes.heading}>tools/equipment needed</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <ToolList />
+            <ToolList recipeId={props.recipeId}/>
             <NewTool />
           </AccordionDetails>
         </Accordion>

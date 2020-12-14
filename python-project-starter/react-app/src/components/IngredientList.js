@@ -8,9 +8,10 @@ import RecipeContentStyles from './styles/RecipeContentStyles';
 
 
 
-export default function IngredientList() {
+export default function IngredientList(props) {
+    const recipeId = props.recipeId
     const classes = RecipeContentStyles();
-    const recipe = useSelector(state => state.recipes[1])
+    const recipe = useSelector(state => state.recipes[recipeId])
     const ingredients = useSelector(state => state.ingredients)
 
     return (

@@ -10,17 +10,15 @@ import { useSelector } from 'react-redux';
 
 export default function Picture(props) {
   const classes = PictureStyles();
-  const recipe = useSelector(state => state.recipes[1])
+  const recipeId = props.recipeId
+  const recipe = useSelector(state => state.recipes[recipeId])
   if (recipe === undefined) return null;
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-          {recipe.picture_url}
         <CardMedia
           image={`url(${recipe.picture_url})`}
         />
-      </CardActionArea>
     </Card>
   );
 }

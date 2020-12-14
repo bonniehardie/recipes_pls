@@ -11,10 +11,9 @@ export default function RecipeView(props) {
   return (
     <Box>
         <RecipeAppBar recipeId={props.recipeId} />
-        {/* <RecipePicture />
-        <Picture />
-        <RecipeContent />
-        <Ratings /> */}
+        {/*<RecipePicture /> */}
+        {/* <Picture recipeId={props.recipeId}/> */}
+        <RecipeContent recipeId={props.recipeId}/>
     </Box>
 
   );
