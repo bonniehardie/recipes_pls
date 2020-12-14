@@ -33,7 +33,7 @@ export default function RecipeContent(props) {
           </AccordionSummary>
           <AccordionDetails className={classes.details}>
             <IngredientList recipeId={props.recipeId}/>
-            <NewIngredient />
+            <NewIngredient recipeId={props.recipeId}/>
           </AccordionDetails>
         </Accordion>
 
@@ -47,7 +47,7 @@ export default function RecipeContent(props) {
           </AccordionSummary>
           <AccordionDetails>
             <DirectionList recipeId={props.recipeId}/>
-            <NewDirection />
+            <NewDirection recipeId={props.recipeId}/>
           </AccordionDetails>
         </Accordion>
 
@@ -61,7 +61,7 @@ export default function RecipeContent(props) {
           </AccordionSummary>
           <AccordionDetails>
             <ToolList recipeId={props.recipeId}/>
-            <NewTool />
+            <NewTool recipeId={props.recipeId}/>
           </AccordionDetails>
         </Accordion>
 
