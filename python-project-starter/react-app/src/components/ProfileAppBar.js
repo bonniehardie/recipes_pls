@@ -9,6 +9,8 @@ import AppBarStyles from './styles/AppBarStyles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 import NewRecipe from './dialogs/NewRecipe';
+import LogoutButton2 from './auth/LogoutButton2';
+
 
 export default function ProfileAppBar() {
   const classes = AppBarStyles();
@@ -19,13 +21,13 @@ export default function ProfileAppBar() {
     <div className={classes.root}>
       <AppBar className={classes.background}>
           <Toolbar className={classes.toolbar} position='static'>
-            <IconButton
+            {/* <IconButton
               edge="start"
               className={classes.menuButton}
               aria-label="open drawer"
             >
               <MenuIcon className={classes.icons}/>
-            </IconButton>
+            </IconButton> */}
             <Typography className={classes.hello}>
 
               {`hello, ${user.username} :)`}
@@ -39,7 +41,11 @@ export default function ProfileAppBar() {
             <IconButton className={classes.icons} aria-label="display more actions" edge="end" color="inherit">
               {/* <MoreIcon /> */}
             </IconButton>
-            <NewRecipe />
+            <div className={classes.space}>
+              <NewRecipe />
+              <LogoutButton2/>
+            </div>
+
           </Toolbar>
       </AppBar>
     </div>

@@ -14,7 +14,7 @@ export default function MainPage() {
       <main className={ classes.main }>
         <Switch>
           <Route path='/recipes/:id'>
-            <RecipeView recipeId='2'/>
+            <RecipeView recipeId='1'/>
           </Route>
           <Route path="/profile">
             <Profile />

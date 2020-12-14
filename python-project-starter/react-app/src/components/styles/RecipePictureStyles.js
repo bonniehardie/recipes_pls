@@ -5,16 +5,15 @@ const RecipePictureStyles = makeStyles((theme) => ({
             display: 'flex',
             flexWrap: 'wrap',
             '& > *': {
-                margin: theme.spacing(1),
+                margin: 10,
                 // width: theme.spacing(16),
                 // height: theme.spacing(16),
-                width: '500px',
-                height: '500px'
+                width: '300px',
+                height: '300px'
             },
         },
         paper: {
             // backgroundImage: `url(https://savorandsavvy.com/wp-content/uploads/2019/07/Baked-Salmon-recipe-1.jpg)`,
-            maxWidth: '100%'
         }
 }));
 export default RecipePictureStyles;

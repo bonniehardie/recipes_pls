@@ -4,18 +4,17 @@ const MainPageStyles = makeStyles(theme => ({
   mainpageContainer: {
     display: 'flex',
     width: '100vw',
+    height: '100vh',
     boxSizing: 'borderBox',
     overflow: 'scroll'
   },
   main: {
-    flexGrow: 1,
-        overflow: 'scroll'
+    // flexGrow: 1,
+    //     overflow: 'scroll'
 
     // border: '1px solid black',
   },
-  noteviewcontainer: {
-    display: 'flex',
-  }
+
 }));
 
 export default MainPageStyles;

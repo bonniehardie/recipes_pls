@@ -17,7 +17,8 @@ export default function Picture(props) {
   return (
     <Card className={classes.root}>
         <CardMedia
-          image={`url(${recipe.picture_url})`}
+          className={classes.picture}
+          image={recipe.picture_url}
         />
     </Card>
   );

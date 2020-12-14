@@ -8,6 +8,14 @@ const AppBarStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    space: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        height: '100px',
+        justifyContent: 'space-around'
+
+    },
     menuButton: {
         marginRight: theme.spacing(2),
         color: '#000300'

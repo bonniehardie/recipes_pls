@@ -8,25 +8,28 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import AppBarStyles from './styles/AppBarStyles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
-
+import LogoutButton from './auth/LogoutButton';
 
 export default function RecipeAppBar(props) {
   const recipeId = props.recipeId
   const classes = AppBarStyles();
   const recipe = useSelector(state => state.recipes[recipeId])
 
+
+
   if (recipe === undefined) return null;
   return (
     <div className={classes.root}>
       <AppBar className={classes.background}>
           <Toolbar className={classes.toolbar} position='static'>
-            <IconButton
+            {/* <IconButton
               edge="start"
               className={classes.menuButton}
               aria-label="open drawer"
             >
               <MenuIcon className={classes.icons}/>
-            </IconButton>
+            </IconButton> */}
+            <LogoutButton />
             <Typography className={classes.title} noWrap>
               {recipe.name}
             </Typography>

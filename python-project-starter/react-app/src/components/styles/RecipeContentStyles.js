@@ -23,7 +23,8 @@ const RecipeContentStyles = makeStyles((theme) => ({
         height: '100%',
         width: '100%',
         padding: '15%',
-        paddingBottom: 0,
+        paddingBottom: 250,
+        marginTop: 100
 
     },
 
@@ -45,6 +46,7 @@ const RecipeContentStyles = makeStyles((theme) => ({
     },
     root: {
         width: '80%',
+        // margin: 150
         // backgroundColor: 'red',
         // overflow: 'scroll'
     },

@@ -5,7 +5,9 @@ import MainPage from '../MainPage';
 const ProtectedRoute = props => {
 
   if (props.authenticated) {
-    return <Redirect to = "recipes/:id" />
+    // return <Redirect to = "recipes/:id" />
+    return <Redirect to="/profile" />
+
   }
 
   return (

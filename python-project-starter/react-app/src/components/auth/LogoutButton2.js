@@ -4,7 +4,7 @@ import RecipeViewStyles from '../styles/RecipeViewStyles';
 import Button from '@material-ui/core/Button';
 
 
-const LogoutButton = () => {
+const LogoutButton2 = () => {
   const classes = RecipeViewStyles();
 
   const onLogout = async (e) => {
@@ -13,19 +13,12 @@ const LogoutButton = () => {
   };
   return (
     <div className={classes.button_div}>
-        <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={onLogout}
-        >
-            logout
-        </Button>
+      <Button variant="outlined" onClick={onLogout}>
+          logout
+      </Button>
     </div>
   )
   // return <button className={classes.logout_button} onClick={onLogout}>logout</button>;
 };
 
-export default LogoutButton;
+export default LogoutButton2;
