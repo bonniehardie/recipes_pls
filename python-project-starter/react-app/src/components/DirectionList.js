@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 import RecipeContentStyles from './styles/RecipeContentStyles';
 
 
-export default function DirectionList() {
+export default function DirectionList(props) {
+    const recipeId = props.recipeId
     const classes = RecipeContentStyles();
-    const recipe = useSelector(state => state.recipes[1])
+    const recipe = useSelector(state => state.recipes[recipeId])
     const directions = useSelector(state => state.directions)
 
     return (

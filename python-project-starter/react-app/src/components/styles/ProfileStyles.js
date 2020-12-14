@@ -18,13 +18,18 @@ const ProfileStyles = makeStyles((theme) => ({
     //     display: 'relative'
     // },
     recipe_container: {
+        // backgroundColor: 'yellow',
+
         // display: 'absolute',
         // top: '800px',
         // padding: 10
 
     },
     scroll: {
+        display: 'flex',
+        justifyContent: 'center',
         // overflow: 'scroll',
+
     }
 }));
 
