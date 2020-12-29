@@ -6,7 +6,7 @@ import Profile from '../Profile';
 const ProtectedRoute = props => {
 
   if (props.authenticated) {
-    return <Redirect to="/main" />
+    return <Redirect to="/" />
     // return <Redirect to = "profile/"/>
     // return <Redirect to = "recipes/:id" />
 

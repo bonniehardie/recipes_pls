@@ -13,11 +13,13 @@ export default function MainPage() {
     <Box className={ classes.mainpageContainer }>
       <main className={ classes.main }>
         <Switch>
-          <Route path="/">
+          <Route exact path="/recipes/:id" component={RecipeView}>
+            <RecipeView />
+          </Route>
+          <Route exact path="/">
             <Profile />
           </Route>
-          <Route path="/recipes/:id" component={RecipeView}>
-          </Route>
+
         </Switch>
       </main>
     </Box>

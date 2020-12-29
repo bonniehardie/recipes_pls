@@ -14,6 +14,7 @@ export default function Profile() {
   const classes = ProfileStyles();
 
   return (
+
     <Box className={classes.container}>
       <Box className={classes.profile_container}>
         <ProfileAppBar />
