@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MainPage from './components/MainPage';
 import LoginForm from "./components/auth/LoginForm";
 import SignupForm from "./components/auth/SignupForm";
@@ -31,7 +31,7 @@ export default function App() {
             <ProtectedRoute path="/signup" exact={true} authenticated={!isNotLoggedIn}>
               <SignupForm />
             </ProtectedRoute>
-            <PrivateRoute path="/" authenticated={!isNotLoggedIn}>
+            <PrivateRoute path="/main" authenticated={!isNotLoggedIn}>
               <MainPage />
             </PrivateRoute>
           </Switch>

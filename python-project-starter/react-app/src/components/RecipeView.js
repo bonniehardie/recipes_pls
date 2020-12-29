@@ -10,14 +10,14 @@ import RecipeViewStyles from './styles/RecipeViewStyles';
 
 export default function RecipeView(props) {
   const classes = RecipeViewStyles();
+  const recipeId = props.match.params.id
 
   return (
-    <Box className={classes.box}>
-        <RecipeAppBar className={classes.app_bar} recipeId={props.recipeId} />
-        {/* <RecipePicture /> */}
-        {/* <Picture className={classes.picture} recipeId={props.recipeId}/> */}
-        <RecipeContent className={classes.recipe_content} recipeId={props.recipeId}/>
-    </Box>
+    <h1>sanity check</h1>
+    // <Box className={classes.box}>
+    //     <RecipeAppBar className={classes.app_bar} recipeId={recipeId} />
+    //     <RecipeContent className={classes.recipe_content} recipeId={recipeId} />
+    // </Box>
 
   );
 }
