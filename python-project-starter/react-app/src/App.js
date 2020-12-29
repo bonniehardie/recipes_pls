@@ -25,15 +25,15 @@ export default function App() {
       <Theme>
         <BrowserRouter>
           <Switch>
-            <ProtectedRoute exact path="/login" exact={true} authenticated={!isNotLoggedIn}>
+            <Route exact path="/login" exact={true} authenticated={!isNotLoggedIn}>
               <LoginForm />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/signup" exact={true} authenticated={!isNotLoggedIn}>
+            </Route>
+            <Route exact path="/signup" exact={true} authenticated={!isNotLoggedIn}>
               <SignupForm />
+            </Route>
+            <ProtectedRoute path="/" authenticated={!isNotLoggedIn} component={MainPage}>
+              {/* <MainPage /> */}
             </ProtectedRoute>
-            <PrivateRoute exact path="/" authenticated={!isNotLoggedIn}>
-              <MainPage />
-            </PrivateRoute>
           </Switch>
         </BrowserRouter>
       </Theme>

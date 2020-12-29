@@ -13,6 +13,9 @@ export default function RecipeCard(props) {
   const classes = RecipeCardStyles();
   // const recipe = useSelector(state => state.recipes[1])
   // if (recipe === undefined) return null;
+  // console.log(props.href)
+  // console.log(props.name)
+  // console.log(props.backstory)
 
   return (
     <Card className={classes.root}>
@@ -33,12 +36,12 @@ export default function RecipeCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button
-        // href='www.google.com'
-        href={props.href}
-        className={classes.button}size="small" color="primary">
-          let's cook!
-        </Button>
+          <Button
+          // href='www.google.com'
+          href={props.href}
+            className={classes.button}size="small" color="primary">
+            let's cook!
+          </Button>
       </CardActions>
     </Card>
   );

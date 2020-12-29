@@ -5,16 +5,15 @@ import Profile from '../Profile';
 
 const ProtectedRoute = props => {
 
-  if (props.authenticated) {
-    return <Redirect to="/" />
+    return (
+      <Route {...props}>
+        {(props.authenticated)? props.children  : <Redirect to="/login" />}
+      </Route>
+    )
+    // return <Redirect to="/" />
     // return <Redirect to = "profile/"/>
     // return <Redirect to = "recipes/:id" />
 
-  }
-
-  return (
-    <Route {...props}/>
-  );
-};
+}
 
 export default ProtectedRoute;

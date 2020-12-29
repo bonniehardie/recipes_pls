@@ -10,9 +10,9 @@ import RecipeViewStyles from './styles/RecipeViewStyles';
 
 export default function RecipeView(props) {
   const classes = RecipeViewStyles();
-  const recipeId = props.match.params.id
+  // const recipeId = props.match.params.id
   console.log('hello this is a sanity check')
-  console.log(recipeId)
+  // console.log(recipeId)
   return (
     <h1 className={classes.h1}>sanity check</h1>
     // <Box className={classes.box}>

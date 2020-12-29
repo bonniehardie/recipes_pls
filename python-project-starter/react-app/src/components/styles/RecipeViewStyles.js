@@ -19,8 +19,9 @@ const RecipeViewStyles = makeStyles(theme => ({
   button_div: {
   },
   h1: {
-    color: 'red',
-    fontSize: '50px'
+    color: 'black',
+    fontSize: '50px',
+    backgroundColor: 'red'
   },
   picture: {
     backgroundColor: 'orange'
