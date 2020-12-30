@@ -19,20 +19,24 @@ export default function App() {
     dispatch(authenticateThunk());
   }, [dispatch]);
 
+  // const isLoaded = useSelector(state => state.loaded)
+
+  // console.log(isLoaded)
+  // if (!isLoaded) return null;
   return (
     <>
       <CssBaseline />
       <Theme>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/login" exact={true} authenticated={!isNotLoggedIn}>
+            <PrivateRoute exact path="/login" exact={true} authenticated={!isNotLoggedIn}>
               <LoginForm />
-            </Route>
-            <Route exact path="/signup" exact={true} authenticated={!isNotLoggedIn}>
+            </PrivateRoute>
+            <PrivateRoute exact path = "/signup" exact={true} authenticated={!isNotLoggedIn}>
               <SignupForm />
-            </Route>
-            <ProtectedRoute path="/" authenticated={!isNotLoggedIn} component={MainPage}>
-              {/* <MainPage /> */}
+            </PrivateRoute>
+            <ProtectedRoute path="/" authenticated={!isNotLoggedIn}>
+              <MainPage />
             </ProtectedRoute>
           </Switch>
         </BrowserRouter>
