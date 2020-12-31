@@ -5,8 +5,8 @@ import Box from '@material-ui/core/Box';
 
 
 export default function Ratings() {
-  const [tastyValue, setTastyValue] = React.useState(2);
-  const [easyValue, setEasyValue] = React.useState(2);
+  const [tastyValue, setTastyValue] = React.useState();
+  const [easyValue, setEasyValue] = React.useState();
 
   return (
     <div>
