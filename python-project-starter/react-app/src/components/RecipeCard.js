@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import RecipeCardStyles from './styles/RecipeCardStyles';
 import Link from '@material-ui/core/Link';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function RecipeCard(props) {
   const classes = RecipeCardStyles();
@@ -37,8 +38,8 @@ export default function RecipeCard(props) {
       </CardActionArea>
       <CardActions>
           <Button
-          // href='www.google.com'
-          href={props.href}
+          component={NavLink}
+          to={props.href}
             className={classes.button}size="small" color="primary">
             let's cook!
           </Button>
