@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import MainPageStyles from './styles/MainPageStyles';
 import RecipeContent from './RecipeContent';
@@ -11,16 +11,16 @@ export default function MainPage() {
 
   return (
     <Box className={ classes.mainpageContainer }>
-      <main className={ classes.main }>
-        <Switch>
-          <Route path='/recipes/:id'>
-            <RecipeView recipeId='1'/>
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-        </Switch>
-      </main>
+        {/* <BrowserRouter> */}
+            <Route path="/recipes/:id" >
+              <RecipeView/>
+            </Route>
+            <Route exact path="/" >
+              <Profile />
+              {/* <RecipeView /> */}
+              {/* <h1>wtf is happening</h1> */}
+            </Route>
+        {/* </BrowserRouter> */}
     </Box>
   );
 }

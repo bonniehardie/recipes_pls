@@ -32,7 +32,7 @@ def get_user_data(user):
         "recipes": recipes,
         "directions": directions,
         "tools": tools,
-        "ratings": ratings
+        "ratings": ratings,
     }
 
 

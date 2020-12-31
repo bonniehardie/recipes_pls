@@ -4,6 +4,7 @@ import { setIngredients } from './ingredients';
 import { setRatings } from './ratings';
 import { setRecipes } from './recipes';
 import { setTools } from './tools';
+import { setLoaded } from './ui';
 
 export const USER_KEY = "authentication/USER";
 export const SET_USER = 'authentication/SET_USER';
@@ -14,7 +15,8 @@ export const setUser = (user) => ({ type: SET_USER, user });
 
 export const authenticateThunk = () => async (dispatch) => {
     const data = await authenticate();
-    // if (!data) return null;
+    dispatch(setLoaded());
+
     if (!data.errors) {
         const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));
@@ -30,7 +32,6 @@ export const authenticateThunk = () => async (dispatch) => {
 
 export const loginThunk = (email, password) => async (dispatch) => {
     const data = await login(email, password);
-    // if (!data) return null;
     if (!data.errors) {
         const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));

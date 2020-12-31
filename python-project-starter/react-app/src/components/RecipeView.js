@@ -6,17 +6,17 @@ import RecipePicture from './RecipePicture';
 import Picture from './Picture';
 import Ratings from './Ratings';
 import RecipeViewStyles from './styles/RecipeViewStyles';
-
+import { useParams } from "react-router-dom";
 
 export default function RecipeView(props) {
   const classes = RecipeViewStyles();
+  const params = useParams();
+  const recipeId = params.id
 
   return (
     <Box className={classes.box}>
-        <RecipeAppBar className={classes.app_bar} recipeId={props.recipeId} />
-        {/* <RecipePicture /> */}
-        {/* <Picture className={classes.picture} recipeId={props.recipeId}/> */}
-        <RecipeContent className={classes.recipe_content} recipeId={props.recipeId}/>
+        <RecipeAppBar className={classes.app_bar} recipeId={recipeId} />
+        <RecipeContent className={classes.recipe_content} recipeId={recipeId} />
     </Box>
 
   );
