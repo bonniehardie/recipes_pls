@@ -10,7 +10,7 @@ const RecipeViewStyles = makeStyles(theme => ({
       // top: 60,
       // left: 10,
       // margin: 10,
-      
+
       backgroundColor: '#d1e9f1',
       height: '30px',
       fontSize: '12pt',
@@ -33,7 +33,8 @@ const RecipeViewStyles = makeStyles(theme => ({
 
   },
   recipe_content: {
-
+    overflow: 'scroll',
+    maxHeight: '900px'
   }
 }));
 

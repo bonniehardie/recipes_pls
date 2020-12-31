@@ -16,7 +16,9 @@ export default function RecipeView(props) {
   return (
     <Box className={classes.box}>
         <RecipeAppBar className={classes.app_bar} recipeId={recipeId} />
-        <RecipeContent className={classes.recipe_content} recipeId={recipeId} />
+        <Box className={classes.recipe_content}>
+          <RecipeContent recipeId={recipeId} />
+        </Box>
     </Box>
 
   );
