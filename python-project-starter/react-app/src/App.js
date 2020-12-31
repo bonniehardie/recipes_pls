@@ -19,10 +19,10 @@ export default function App() {
     dispatch(authenticateThunk());
   }, [dispatch]);
 
-  // const isLoaded = useSelector(state => state.loaded)
+  const isLoaded = useSelector(state => state.ui.loaded)
 
-  // console.log(isLoaded)
-  // if (!isLoaded) return null;
+  console.log(isLoaded)
+  if (!isLoaded) return null;
   return (
     <>
       <CssBaseline />

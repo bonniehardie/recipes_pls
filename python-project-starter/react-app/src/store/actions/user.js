@@ -15,6 +15,8 @@ export const setUser = (user) => ({ type: SET_USER, user });
 
 export const authenticateThunk = () => async (dispatch) => {
     const data = await authenticate();
+    dispatch(setLoaded());
+
     if (!data.errors) {
         const { user, directions, ingredients, ratings, recipes, tools } = data;
         dispatch(setUser(user));
@@ -23,7 +25,6 @@ export const authenticateThunk = () => async (dispatch) => {
         dispatch(setIngredients(ingredients));
         dispatch(setRatings(ratings));
         dispatch(setTools(tools));
-        dispatch(setLoaded());
     } else {
         return
     }
