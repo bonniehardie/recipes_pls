@@ -9,6 +9,9 @@ import AppBarStyles from './styles/AppBarStyles';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
 import LogoutButton from './auth/LogoutButton';
+import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
+import Button from '@material-ui/core/Button';
+
 
 export default function RecipeAppBar(props) {
   const recipeId = props.recipeId
@@ -30,6 +33,9 @@ export default function RecipeAppBar(props) {
               <MenuIcon className={classes.icons}/>
             </IconButton> */}
             <LogoutButton />
+            <Button className={classes.home} component={NavLink} to='/' variant = "contained" color = "primary">
+              home
+            </Button>
             <Typography className={classes.title} noWrap>
               {recipe.name}
             </Typography>
