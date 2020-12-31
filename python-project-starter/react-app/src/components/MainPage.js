@@ -13,7 +13,7 @@ export default function MainPage() {
     <Box className={ classes.mainpageContainer }>
         {/* <BrowserRouter> */}
             <Route path="/recipes/:id" >
-              <RecipeView />
+              <RecipeView/>
             </Route>
             <Route exact path="/" >
               <Profile />

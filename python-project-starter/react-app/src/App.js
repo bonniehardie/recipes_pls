@@ -21,7 +21,6 @@ export default function App() {
 
   const isLoaded = useSelector(state => state.ui.loaded)
 
-  console.log(isLoaded)
   if (!isLoaded) return null;
   return (
     <>
