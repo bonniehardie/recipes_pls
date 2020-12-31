@@ -9,6 +9,10 @@ const RecipeCardStyles = makeStyles({
         width: 300,
         position: 'relative'
     },
+    backstory: {
+        maxHeight: '60px',
+        overflow: 'hidden'
+    },
     media: {
         height: 100,
     },

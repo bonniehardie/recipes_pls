@@ -27,13 +27,15 @@ export default function RecipeCard(props) {
           // image="https://cafedelites.com/wp-content/uploads/2017/12/Perfect-Juicy-Roast-Chicken-IMAGE-28.jpg"
           title="Recipe.name"
         />
-        <CardContent>
+        <CardContent className={classes.elipses}>
           <Typography >
             {props.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.backstory}
-          </Typography>
+          <div className={classes.backstory}>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {props.backstory}
+            </Typography>
+          </div>
         </CardContent>
       </CardActionArea>
       <CardActions>
