@@ -2,35 +2,33 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const ProfileStyles = makeStyles((theme) => ({
-    card_box: {
-        margin: 5
-    },
-    container: {
-        overflow: 'scroll',
+
+    // profile_container: {
+    //     display: 'flex',
+
+    // }
+card_box: {
+    // width: '800px',
+    // height: '800px',
+    // backgroundColor: 'tan',
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // flexDirection: 'row',
+    // overflow: 'scroll'
+},
+    recipe_container: {
+        // overflow: 'scroll',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '800px',
-        // backgroundColor: 'red'
-        // display: 'relative'
-    },
-    // profile_container: {
-    //     display: 'relative'
-    // },
-    recipe_container: {
+        // height: '800px',
+        // width: '1000px',
+        backgroundColor: 'red',
         // backgroundColor: 'yellow',
-
-        // display: 'absolute',
-        // top: '800px',
         // padding: 10
 
     },
-    scroll: {
-        display: 'flex',
-        justifyContent: 'center',
-        // overflow: 'scroll',
 
-    }
 }));
 
 export default ProfileStyles;

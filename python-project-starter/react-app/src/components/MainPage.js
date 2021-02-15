@@ -11,16 +11,12 @@ export default function MainPage() {
 
   return (
     <Box className={ classes.mainpageContainer }>
-        {/* <BrowserRouter> */}
             <Route path="/recipes/:id" >
               <RecipeView/>
             </Route>
             <Route exact path="/" >
               <Profile />
-              {/* <RecipeView /> */}
-              {/* <h1>wtf is happening</h1> */}
             </Route>
-        {/* </BrowserRouter> */}
     </Box>
   );
 }

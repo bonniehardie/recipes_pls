@@ -14,13 +14,10 @@ export default function Profile() {
   const classes = ProfileStyles();
 
   return (
-
-    <Box className={classes.container}>
-      <Box className={classes.profile_container}>
-        <ProfileAppBar />
-         <Box className={classes.recipe_container}>
-          <RecipeMenu />
-         </Box>
+    <Box className={classes.profile_container}>
+      <ProfileAppBar />
+      <Box className={classes.recipe_container}>
+        <RecipeMenu />
       </Box>
     </Box>
   );
