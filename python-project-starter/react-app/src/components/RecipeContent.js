@@ -13,6 +13,12 @@ import NewIngredient from './dialogs/NewIngredient';
 import NewDirection from './dialogs/NewDirection';
 import NewTool from './dialogs/NewTool';
 import Ratings from './Ratings';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Paper from '@material-ui/core/Paper';
 
 
 export default function RecipeContent(props) {
@@ -20,6 +26,8 @@ export default function RecipeContent(props) {
   const recipeId = props.recipeId
   const recipe = useSelector(state => state.recipes[recipeId])
   if (recipe === undefined) return null;
+  console.log(recipe.picture_url)
+
   return (
     <div className={classes.container}>
       <div className={classes.root}>
@@ -80,10 +88,18 @@ export default function RecipeContent(props) {
           </AccordionDetails>
         </Accordion>
       </div>
-      <div className={classes.ratings}>
-        <Ratings />
-      </div>
-
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.media}
+          image="https://lh3.googleusercontent.com/proxy/tyx0uF_7LhDiYD57xfzA7ORJNid3Mqe6__hOurtG0OCxOsxMZLO6WAxS4TZ1hMrr1rOk3t5pBKRl-aYM4RuGV8VvbJLThkk"
+          title="Paella dish"
+        ></CardMedia>
+        <CardContent className={classes.card_content}>
+          <div className={classes.ratings}>
+            <Ratings />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

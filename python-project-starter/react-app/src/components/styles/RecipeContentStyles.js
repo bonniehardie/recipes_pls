@@ -1,7 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-
 const RecipeContentStyles = makeStyles((theme) => ({
+    card: {
+        width: '40vw',
+        height: '30vh'
+    },
+    // card_content: {
+    //     maxHeight: '10vh'
+    // },
+    media: {
+        height: '40vh',
+        paddingTop: '0',
+    },
     accordion: {
         backgroundColor: 'white',
         // backgroundColor: '#E8D7CF',
@@ -27,7 +37,6 @@ const RecipeContentStyles = makeStyles((theme) => ({
         marginTop: 100
 
     },
-
     details: {
         // display: 'relative',
         // overflow: 'scroll'
@@ -43,6 +52,9 @@ const RecipeContentStyles = makeStyles((theme) => ({
         display: 'absolute',
         left: 30,
         width: '90%'
+    },
+    media: {
+        height: 150,
     },
     root: {
         width: '80%',

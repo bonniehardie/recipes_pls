@@ -15,6 +15,33 @@ import LogoutButton2 from './auth/LogoutButton2';
 export default function ProfileAppBar() {
   const classes = AppBarStyles();
   const user = useSelector(state => state.user)
+  const today = new Date();
+  const weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+  const day_of_week = weekday[today.getDay()];
+
+  const months = new Array(12);
+  months[0] = "January";
+  months[1] = "February";
+  months[2] = "March";
+  months[3] = "April";
+  months[4] = "May";
+  months[5] = "June";
+  months[6] = "July";
+  months[7] = "August";
+  months[8] = "September";
+  months[9] = "October";
+  months[10] = "November";
+  months[11] = "December";
+  const month = months[today.getMonth()];
+  const day = today.getUTCDate();
+  const year = today.getFullYear();
 
   if (user === undefined) return null;
   return (
@@ -23,6 +50,11 @@ export default function ProfileAppBar() {
         <Typography className={classes.hello}>
           {`hello, ${user.username} :)`}
         </Typography>
+        {/* <Typography className={classes.date}>
+          {
+            `today is ${day_of_week}, ${month} ${day}, ${year}`
+          }
+        </Typography> */}
         <Typography className={classes.title} noWrap>
           my recipes
         </Typography>

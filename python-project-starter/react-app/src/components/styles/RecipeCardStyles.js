@@ -36,7 +36,7 @@ const RecipeCardStyles = makeStyles({
         left: 15,
         backgroundColor: '#A1D8E5',
         // height: '10px',
-        fontSize: '12pt',
+        fontSize: '16px',
         color: 'black',
         '&:hover': {
             backgroundColor: '#7DA8B2',

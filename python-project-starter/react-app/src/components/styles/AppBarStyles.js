@@ -7,7 +7,7 @@ const AppBarStyles = makeStyles((theme) => ({
     },
     space: {
         display: 'flex',
-        width: '15vw',
+        width: '17vw',
         justifyContent: 'space-between',
         flexDirection: 'row',
         position: 'absolute',
@@ -16,7 +16,7 @@ const AppBarStyles = makeStyles((theme) => ({
     },
     space2: {
         display: 'flex',
-        width: '14vw',
+        width: '16vw',
         justifyContent: 'space-between',
         flexDirection: 'row',
         position: 'absolute',
@@ -27,9 +27,17 @@ const AppBarStyles = makeStyles((theme) => ({
         position: 'absolute',
         top: '2vh',
         left: '4vw',
-        fontSize: 20,
+        fontSize: '20px',
         color: '#2e2e2e',
     },
+    // date: {
+    //     position: 'absolute',
+    //     bottom: '2vh',
+    //     right: '4vw',
+    //     fontSize: '16px',
+    //     color: '#2e2e2e',
+    //     textTransform: 'lowercase'
+    // },
     toolbar: {
         position: 'relative',
         top: 5,
@@ -39,7 +47,7 @@ const AppBarStyles = makeStyles((theme) => ({
         paddingBottom: 15,
     },
     title: {
-        fontSize: 50,
+        fontSize: '70px',
         position: 'absolute',
         left: '12vw',
         bottom: '2vh',
@@ -53,6 +61,7 @@ const AppBarStyles = makeStyles((theme) => ({
 
     },
     button: {
+        fontSize: '16px',
         backgroundColor: '#c6e7ef',
         '&:hover': {
             backgroundColor: '#7DA8B2',
@@ -60,6 +69,5 @@ const AppBarStyles = makeStyles((theme) => ({
         },
         textTransform: 'none',
     },
-    button_div: {},
 }));
 export default AppBarStyles;

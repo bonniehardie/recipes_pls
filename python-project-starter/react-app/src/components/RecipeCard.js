@@ -24,7 +24,6 @@ export default function RecipeCard(props) {
         <CardMedia
           className={classes.media}
           image={props.picture}
-          // image="https://cafedelites.com/wp-content/uploads/2017/12/Perfect-Juicy-Roast-Chicken-IMAGE-28.jpg"
           title="Recipe.name"
         />
         <CardContent>
