@@ -18,36 +18,19 @@ export default function ProfileAppBar() {
 
   if (user === undefined) return null;
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.background}>
-          <Toolbar className={classes.toolbar} position='static'>
-            {/* <IconButton
-              edge="start"
-              className={classes.menuButton}
-              aria-label="open drawer"
-            >
-              <MenuIcon className={classes.icons}/>
-            </IconButton> */}
-            <Typography className={classes.hello}>
-
-              {`hello, ${user.username} :)`}
-            </Typography>
-            <Typography className={classes.title} noWrap>
-               my recipes
-            </Typography>
-            <IconButton className={classes.icons} aria-label="search" color="inherit">
-              {/* <SearchIcon /> */}
-            </IconButton>
-            <IconButton className={classes.icons} aria-label="display more actions" edge="end" color="inherit">
-              {/* <MoreIcon /> */}
-            </IconButton>
-            <div className={classes.space}>
-              <NewRecipe />
-              <LogoutButton2/>
-            </div>
-
-          </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar className={classes.background}>
+      <Toolbar className={classes.toolbar} position='static'>
+        <Typography className={classes.hello}>
+          {`hello, ${user.username} :)`}
+        </Typography>
+        <Typography className={classes.title} noWrap>
+          my recipes
+        </Typography>
+        <div className={classes.space}>
+          <NewRecipe className={classes.button}/>
+          <LogoutButton2 className={classes.button}/>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }

@@ -5,42 +5,44 @@ const AppBarStyles = makeStyles((theme) => ({
     background: {
         backgroundColor: '#A1D8E5'
     },
-    root: {
-        flexGrow: 1,
-    },
     space: {
         display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-end',
-        height: '100px',
-        justifyContent: 'space-around'
-
+        width: '15vw',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        position: 'absolute',
+        top: '2vh',
+        right: '4vw'
     },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        color: '#000300'
+    space2: {
+        display: 'flex',
+        width: '14vw',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        position: 'absolute',
+        top: '2vh',
+        right: '4vw'
     },
     hello: {
-        fontSize: '20px',
-        paddingTop: 7,
-        color: '#2e2e2e'
+        position: 'absolute',
+        top: '2vh',
+        left: '4vw',
+        fontSize: 20,
+        color: '#2e2e2e',
     },
     toolbar: {
         position: 'relative',
         top: 5,
-        minHeight: 135,
-        height: '200px',
+        height: '25vh',
         backgroundColor: '#A1D8E5',
-        alignItems: 'flex-start',
-        paddingTop: 5,
-        paddingBottom: 15
+        // paddingTop: 5,
+        paddingBottom: 15,
     },
     title: {
-        flexGrow: 1,
-        alignSelf: 'flex-end',
-        // fontFamily: 'arial',
-        // fontWeight: 200,
         fontSize: 50,
+        position: 'absolute',
+        left: '12vw',
+        bottom: '2vh',
         color: 'white'
     },
     icons: {
@@ -49,6 +51,15 @@ const AppBarStyles = makeStyles((theme) => ({
             color: '#adaa97'
         }
 
-    }
+    },
+    button: {
+        backgroundColor: '#c6e7ef',
+        '&:hover': {
+            backgroundColor: '#7DA8B2',
+            color: 'white'
+        },
+        textTransform: 'none',
+    },
+    button_div: {},
 }));
 export default AppBarStyles;

@@ -28,11 +28,10 @@ export default function RecipeCard(props) {
           title="Recipe.name"
         />
         <CardContent>
-          <Typography >
+          <Typography className={classes.title}>
             {props.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.backstory}
+          <Typography className={classes.backstory} variant="body2" color="textSecondary" component="p" > {props.backstory}
           </Typography>
         </CardContent>
       </CardActionArea>

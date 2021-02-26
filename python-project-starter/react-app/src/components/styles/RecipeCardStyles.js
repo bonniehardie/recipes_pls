@@ -7,14 +7,33 @@ const RecipeCardStyles = makeStyles({
         // maxWidth: 300,
         height: 300,
         width: 300,
-        position: 'relative'
+        position: 'relative',
+        // backgroundColor: 'orange',
+    },
+    backstory: {
+        maxHeight: 60,
+        maxWidth: 275,
+        overflow: 'hidden',
+        // backgroundColor: 'pink'
+        position: 'absolute',
+        top: 180,
+        fontSize: '10pt',
+        color: 'mediumgrey'
+    },
+    title: {
+        maxHeight: 25,
+        overflow: 'hidden',
+        position: 'absolute',
+        top: 155
+
     },
     media: {
-        height: 100,
+        height: 150,
     },
     button: {
         position: 'absolute',
-        bottom: 10,
+        bottom: 15,
+        left: 15,
         backgroundColor: '#A1D8E5',
         // height: '10px',
         fontSize: '12pt',

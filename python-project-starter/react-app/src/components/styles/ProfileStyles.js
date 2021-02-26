@@ -7,26 +7,41 @@ const ProfileStyles = makeStyles((theme) => ({
     //     display: 'flex',
 
     // }
-card_box: {
-    // width: '800px',
-    // height: '800px',
-    // backgroundColor: 'tan',
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    // flexDirection: 'row',
-    // overflow: 'scroll'
-},
+    container: {
+        overflow: 'scroll',
+        display: 'flex',
+        // backgroundColor: 'yellow',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+
+    },
+    card_box: {
+        padding: 5
+        // width: '800px',
+        // height: '800px',
+        // backgroundColor: 'tan',
+        // display: 'flex',
+        // flexWrap: 'wrap',
+        // flexDirection: 'row',
+        // overflow: 'scroll'
+    },
     recipe_container: {
         // overflow: 'scroll',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        // flexDirection: 'row',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         // height: '800px',
         // width: '1000px',
-        backgroundColor: 'red',
-        // backgroundColor: 'yellow',
-        // padding: 10
-
+        // backgroundColor: 'red',
+        width: '80vw',
+        height: '70vh',
+        paddingBottom: 0,
+        paddingTop: 0,
+        position: 'absolute',
+        bottom: 0,
+        left: '10vw'
     },
 
 }));

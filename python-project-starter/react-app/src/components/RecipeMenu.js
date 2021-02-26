@@ -11,15 +11,13 @@ export default function RecipeMenu() {
   if (recipes === undefined) return null;
 
   return (
-    <div className={classes.scroll}>
-      <Box className={classes.container}>
-        { Object.keys(recipes).length ? (Object.keys(recipes).map(id => {
-          return (
-            <Box className={classes.card_box}>
-              <RecipeCard picture={recipes[id].picture_url} name={recipes[id].name} backstory={recipes[id].backstory} href={`/recipes/${id}`}/>
-            </Box>
-          )})): null }
-      </Box>
-    </div>
+    <Box className={classes.container}>
+      { Object.keys(recipes).length ? (Object.keys(recipes).map(id => {
+        return (
+          <Box className={classes.card_box}>
+            <RecipeCard picture={recipes[id].picture_url} name={recipes[id].name} backstory={recipes[id].backstory} href={`/recipes/${id}`}/>
+          </Box>
+        )})): null }
+    </Box>
   );
 }

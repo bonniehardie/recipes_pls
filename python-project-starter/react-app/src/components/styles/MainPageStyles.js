@@ -7,7 +7,6 @@ const MainPageStyles = makeStyles(theme => ({
     width: '100vw',
     height: '100vh',
     boxSizing: 'borderBox',
-    // overflow: 'scroll',
     justifyContent: 'center',
   }
 

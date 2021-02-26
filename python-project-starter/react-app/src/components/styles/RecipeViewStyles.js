@@ -5,19 +5,7 @@ const RecipeViewStyles = makeStyles(theme => ({
   },
   box: {
   },
-  button: {
-      backgroundColor: '#d1e9f1',
-      height: '30px',
-      fontSize: '12pt',
-      color: 'grey',
-      '&:hover': {
-        backgroundColor: '#7DA8B2',
-        color: 'white'
-      },
-      textTransform: 'none',
-  },
-  button_div: {
-  },
+  
   h1: {
     color: 'black',
     fontSize: '50px',
